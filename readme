@@ -1,0 +1,10 @@
+(日)UE5で個人的に作成したMaterialのうち、テクスチャなしで図形を描いたものをまとめたものになります。
+主に学習用途として公開していますが、LISENCEファイルに含まれる内容に反しない限りご自由にご利用ください。
+対応バージョン：UE5.0
+
+参考にさせていただいたWebサイト(順不同・お礼申し上げます。)
+https://karanokan.info/2019/03/31/post-2465/
+https://docs.unity3d.com/Packages/com.unity.shadergraph@6.9/manual/Rounded-Rectangle-Node.html
+https://scrapbox.io/Porin-Room/Unity%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%80%E3%83%BC%E3%81%8A%E7%B5%B5%E6%8F%8F%E3%81%8D%E5%85%A5%E9%96%80
+https://www.shadertoy.com/view/MlySzw
+https://eiliram.artstation.com/projects/KaDLKR
