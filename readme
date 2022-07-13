@@ -2,7 +2,7 @@
 
 これはUE5で個人的に作成したMaterialのうち、テクスチャなしで図形を描いたものをMaterialFunctionにしてまとめたものになります。
 主に学習用途として公開していますが、LISENCEファイルに含まれる内容に反しない限りご自由にご利用ください。
-対応バージョン：UE5.0
+対応バージョン：UE5.0以降
 
 参考にさせていただいたWebサイト(順不同・お礼申し上げます。)
 https://karanokan.info/2019/03/31/post-2465/
@@ -13,3 +13,4 @@ https://eiliram.artstation.com/projects/KaDLKR
 https://zenn.dev/r_ngtm/books/shadergraph-cookbook/viewer/recipe-triangle-effect
 https://qiita.com/edo_m18/items/37d8773a5295bc6aba3d
 https://www.shadertoy.com/view/MlBBWt
+https://www.shadertoy.com/view/WdVfzt
