@@ -9,6 +9,10 @@ Supported version: UE5.4.1
 ※04/24ブランチ名を修正
 ※※※　2022/12/25 ダウンロードしたzipファイルでプロジェクトの起動ができない問題に対応
 
+samples
+![Animation](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/assets/96903403/b592b030-c3bb-4284-99d9-d18b1da10e05)
+
+
 参考にさせていただいたWebサイト(順不同・お礼申し上げます。)
 https://karanokan.info/2019/03/31/post-2465/
 https://docs.unity3d.com/Packages/com.unity.shadergraph@6.9/manual/Rounded-Rectangle-Node.html
