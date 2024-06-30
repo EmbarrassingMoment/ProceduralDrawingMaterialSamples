@@ -1,11 +1,11 @@
 # About this Repository
 This will be a compilation of personally created Material in UE5, which is a collection of figures without textures.
 It is open to the public mainly for learning purposes, but you are free to use it as long as it does not violate the content contained in the LISENCE file.
-Supported version: UE5.4.1
+Supported version: UE5.4.2
 
 これはUE5で個人的に作成したMaterialのうち、テクスチャなしで図形を描いたものをMaterialFunctionにしてまとめたものになります。
 主に学習用途として公開していますが、LISENCEファイルに含まれる内容に反しない限りご自由にご利用ください。
-対応バージョン：UE5.4.1
+対応バージョン：UE5.4.2
 
 ## Some samples
 ### Rader
@@ -34,5 +34,5 @@ https://twitter.com/cmzw_
 https://renard-blog.netlify.app/2023/05/25/_25/
 https://iquilezles.org/articles/distfunctions2d/
 
-使わせていただいているテクスチャー
+## 使わせていただいているテクスチャー
 https://realtimevfx.com/t/debug-textures-for-vfx/7510
