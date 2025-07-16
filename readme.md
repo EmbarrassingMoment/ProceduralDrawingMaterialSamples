@@ -13,7 +13,7 @@ It is primarily intended for learning purposes, but you are free to use it as lo
 
 ## Showcase
 
-| Rader | Animation |
+| Radar | Animation |
 | :---: | :---: |
 | ![Rader](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Rader.gif) | ![Aniamtion](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Animation.gif) |
 | **SnowFlake** | **Transition** |
@@ -77,7 +77,7 @@ This project was made possible by referencing the following websites and resourc
 
 ## Showcase
 
-| Rader | Animation |
+| Radar | Animation |
 | :---: | :---: |
 | ![Rader](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Rader.gif) | ![Aniamtion](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Animation.gif) |
 | **SnowFlake** | **Transition** |
