@@ -29,7 +29,6 @@ It is primarily intended for learning purposes, but you are free to use it as lo
 
 1.  Clone or download this repository.
 2.  Copy the contents of the `Content` folder from this repository into your project's `Content` folder.
-3.  Drag and drop the Material Functions from the Content Browser into your materials.
 
 ## License
 
@@ -93,7 +92,6 @@ This project was made possible by referencing the following websites and resourc
 
 1.  このリポジトリをクローンまたはダウンロードします。
 2.  ご自身のプロジェクトの`Content`フォルダに、このリポジトリの`Content`フォルダの中身をコピーします。
-3.  コンテンツブラウザからマテリアル関数をドラッグ＆ドロップしてご利用ください。
 
 ## ライセンス
 
