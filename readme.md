@@ -25,8 +25,8 @@ It is primarily intended for learning purposes, but you are free to use it as lo
 
 ## Requirements
 
-* Unreal Engine 5.4.2 or later
-
+* Unreal Engine 5.5.0
+  
 ## How to Use
 
 1.  Clone or download this repository.
