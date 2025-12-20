@@ -24,7 +24,7 @@
 
 ## 動作環境
 
-* Unreal Engine 5.4.2 以上
+* Unreal Engine 5 最新バージョン
 
 ## 導入方法
 
