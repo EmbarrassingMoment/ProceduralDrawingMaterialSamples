@@ -25,7 +25,7 @@ It is primarily intended for learning purposes, but you are free to use it as lo
 
 ## Requirements
 
-* Unreal Engine 5.5.0
+* Unreal Engine 5 (Latest)
   
 ## How to Use
 
