@@ -5,6 +5,7 @@
 ## About this Repository
 
 This repository is a collection of Materials and Material Functions created in Unreal Engine 5 (UE5) that draw shapes without using textures.
+This project is dedicated to supporting individual developers in the Unreal Engine community.
 It is primarily intended for learning purposes, but you are free to use it as long as it does not violate the terms of the [LICENSE](LICENSE) file.
 
 ## Features
