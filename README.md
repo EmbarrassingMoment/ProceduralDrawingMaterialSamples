@@ -1,6 +1,9 @@
-[日本語](Readme.ja.md)
+[日本語はこちら](Readme.ja.md)
 
 # ProceduralDrawingMaterialSamples
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Repo Size](https://img.shields.io/github/repo-size/EmbarrassingMoment/ProceduralDrawingMaterialSamples)
 
 ## About this Repository
 
