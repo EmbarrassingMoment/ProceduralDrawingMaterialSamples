@@ -1,5 +1,8 @@
 # ProceduralDrawingMaterialSamples
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Repo Size](https://img.shields.io/github/repo-size/EmbarrassingMoment/ProceduralDrawingMaterialSamples)
+
 ## 概要
 
 このリポジトリは、Unreal Engine 5 (UE5)で作成した、テクスチャを使用せずに図形を描画するマテリアルおよびマテリアル関数のコレクションです。
