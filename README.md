@@ -22,13 +22,13 @@ You are free to use it as long as it does not violate the terms of the [LICENSE]
 
 | Radar | Animation |
 | :---: | :---: |
-| ![Rader](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Rader.gif) | ![Aniamtion](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Animation.gif) |
+| ![Rader](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/Rader.gif) | ![Aniamtion](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/Animation.gif) |
 | **SnowFlake** | **Transition** |
-| ![Snow](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Snow.gif) | ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Transition.gif) |
+| ![Snow](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/Snow.gif) | ![Transition](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/Transition.gif) |
 | **OldTV** | **Others** |
-| ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/OldTV.gif) | ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Samples.gif) |
+| ![Transition](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/OldTV.gif) | ![Transition](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/Samples.gif) |
 | **PageCurl** | |
-| ![PageCurl](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/PageCurl.gif) | |
+| ![PageCurl](https://raw.githubusercontent.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/master/gif/PageCurl.gif) | |
 
 ## Requirements
 
