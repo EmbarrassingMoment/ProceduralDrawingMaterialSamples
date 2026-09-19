@@ -60,7 +60,8 @@ def git_dates():
     -M でリネームを検出し、フォルダ移動があっても元の追加日を引き継ぐ。
     """
     log = subprocess.check_output(
-        ["git", "log", "--name-status", "-M", "--format=@@%ad", "--date=short", "--", "Content"],
+        # -M10%: UE はフォルダ移動時に中身も書き換えるので、既定の閾値ではリネームを取り逃す
+        ["git", "log", "--name-status", "-M10%", "--format=@@%ad", "--date=short", "--", "Content"],
         text=True, encoding="utf-8", errors="replace")
     added, updated, renamed_from, date = {}, {}, {}, None
     for line in log.splitlines():
@@ -72,7 +73,9 @@ def git_dates():
             continue
         path = parts[-1]
         if parts[0].startswith(("R", "C")) and len(parts) >= 3:
-            renamed_from.setdefault(path, parts[1])
+            # 閾値を緩めてあるので、ファイル名が同じ移動だけを履歴の続きとみなす
+            if parts[1].rsplit("/", 1)[-1] == path.rsplit("/", 1)[-1]:
+                renamed_from.setdefault(path, parts[1])
         updated.setdefault(path, date)   # 最初に出た = 最新
         added[path] = date               # 最後に出た = 最古
 
