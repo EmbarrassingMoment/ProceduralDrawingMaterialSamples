@@ -12,3 +12,4 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+Tools/__pycache__

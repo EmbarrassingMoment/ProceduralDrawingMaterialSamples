@@ -4,7 +4,9 @@ Content 以下の Material / PostProcess マテリアルの全一覧。Showcase 
 
 - 対象: 174 件(M_ 134 / PP 40)
 - 現在の Showcase.umap に配置済み: 93 件(`配置済` 列が ✓)
-- `[x]` は Showcase_Shape に採用済み(27 件、Tools/BuildShowcaseShape.py で生成)
+- `[x]` はジャンル別 Showcase レベルに採用済み。備考の `採用: xxx` がどのレベルか
+  - Showcase_Shape: 27 件(`Tools/BuildShowcaseShape.py`)
+  - Showcase_Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)。春夏秋冬のうち夏はまだ素材なし
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
 - `追加` / `更新` は git 履歴上の日付。`⚠重複` は同名アセットが別フォルダにもあるもの
 
@@ -16,73 +18,73 @@ Content 以下の Material / PostProcess マテリアルの全一覧。Showcase 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
 | [ ] | M_Circle | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Circle |
-| [x] | M_Circle_AA | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Circle_AA |
+| [x] | M_Circle_AA | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Circle_AA |
 | [ ] | M_CrossMark | M | ✓ | 2023-10-09 | 2023-10-09 | 1 | MI: MI_CrossMark |
-| [x] | M_CrossMark_V2 | M | ✓ | 2023-10-09 | 2023-10-09 | 1 | MI: MI_CrossMark_V2 |
-| [x] | M_Heart | M | ✓ | 2023-10-09 | 2023-10-09 | 1 | MI: MI_Heart |
-| [x] | M_Hex | M |  | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Hex |
+| [x] | M_CrossMark_V2 | M | ✓ | 2023-10-09 | 2023-10-09 | 1 | 採用: Shape / MI: MI_CrossMark_V2 |
+| [x] | M_Heart | M | ✓ | 2023-10-09 | 2023-10-09 | 1 | 採用: Shape / MI: MI_Heart |
+| [x] | M_Hex | M |  | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Hex |
 | [ ] | M_Polygon | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Polygon |
-| [x] | M_Polygon_AA | M |  | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Polygon_AA |
-| [x] | M_Rectangle | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Rectangle |
+| [x] | M_Polygon_AA | M |  | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Polygon_AA |
+| [x] | M_Rectangle | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Rectangle |
 | [ ] | M_Rhombus | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Rhombus |
-| [x] | M_Rhombus2 | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Rhombus2 |
+| [x] | M_Rhombus2 | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Rhombus2 |
 | [ ] | M_Ring | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Ring |
-| [x] | M_Ring_V2 | M | ✓ | 2023-10-09 | 2023-10-09 | 0 |  |
-| [x] | M_RoundedRectangle | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_RoundedRectangle |
-| [x] | M_Square | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_Square |
+| [x] | M_Ring_V2 | M | ✓ | 2023-10-09 | 2023-10-09 | 0 | 採用: Shape |
+| [x] | M_RoundedRectangle | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_RoundedRectangle |
+| [x] | M_Square | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape / MI: MI_Square |
 
 ## Materials/SDF
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
 | [ ] | M_4PointStar | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_4PointStar |
-| [x] | M_4PointStar2 | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_4PointStar_2 |
-| [x] | M_ExclamationMark | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_ExclamationMark |
-| [x] | M_Grid | M |  | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Grid |
-| [x] | M_Heart_SDF | M |  | 2023-07-03 | 2023-07-03 | 0 |  |
+| [x] | M_4PointStar2 | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | 採用: Shape / MI: MI_4PointStar_2 |
+| [x] | M_ExclamationMark | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | 採用: Shape / MI: MI_ExclamationMark |
+| [x] | M_Grid | M |  | 2026-01-05 | 2026-01-05 | 1 | 採用: Shape / MI: MI_Grid |
+| [x] | M_Heart_SDF | M |  | 2023-07-03 | 2023-07-03 | 0 | 採用: Shape |
 | [ ] | M_Star | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_Star |
-| [x] | M_Star_V2 | M | ✓ | 2023-08-20 | 2023-08-20 | 0 |  |
+| [x] | M_Star_V2 | M | ✓ | 2023-08-20 | 2023-08-20 | 0 | 採用: Shape |
 
 ## Materials/Icon
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
-| [x] | M_5PointStar_V2 | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_5PointStar_V2 |
+| [x] | M_5PointStar_V2 | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | 採用: Shape / MI: MI_5PointStar_V2 |
 | [ ] | M_5pointStar | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_5pointStar |
-| [ ] | M_CherryBloosom | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_CherryBloosom |
-| [x] | M_CherryBlossom_V2 | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_CherryBlossom_V2 |
-| [x] | M_Gear | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_Gear |
-| [x] | M_HazardMark | M | ✓ | 2025-07-11 | 2025-07-11 | 0 |  |
-| [x] | M_JA3_Loading_Icon | M | ✓ | 2024-03-16 | 2024-03-16 | 0 |  |
-| [x] | M_Loading_Icon | M | ✓ | 2025-07-11 | 2026-03-16 | 1 | MI: MI_Loading_Icon |
-| [x] | M_Radar_Icon | M |  | 2025-07-11 | 2025-07-11 | 0 |  |
+| [x] | M_CherryBloosom | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | 採用: Seasons / MI: MI_CherryBloosom |
+| [x] | M_CherryBlossom_V2 | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | 採用: Shape + Seasons / MI: MI_CherryBlossom_V2 |
+| [x] | M_Gear | M | ✓ | 2025-07-11 | 2025-07-11 | 1 | 採用: Shape / MI: MI_Gear |
+| [x] | M_HazardMark | M | ✓ | 2025-07-11 | 2025-07-11 | 0 | 採用: Shape |
+| [x] | M_JA3_Loading_Icon | M | ✓ | 2024-03-16 | 2024-03-16 | 0 | 採用: Shape |
+| [x] | M_Loading_Icon | M | ✓ | 2025-07-11 | 2026-03-16 | 1 | 採用: Shape / MI: MI_Loading_Icon |
+| [x] | M_Radar_Icon | M |  | 2025-07-11 | 2025-07-11 | 0 | 採用: Shape |
 
 ## Materials/Leaf/Ginkgo
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
-| [x] | M_Ginkgo | M | ✓ | 2022-08-12 | 2026-01-08 | 1 | MI: MI_Ginkgo |
+| [x] | M_Ginkgo | M | ✓ | 2022-08-12 | 2026-01-08 | 1 | 採用: Shape + Seasons / MI: MI_Ginkgo |
 
 ## Materials/Leaf/MapleLeaf
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
-| [x] | M_JapaneseMapleLeaf | M |  | 2022-08-12 | 2022-12-25 | 1 | MI: MI_JapaneseMapleLeaf |
+| [x] | M_JapaneseMapleLeaf | M |  | 2022-08-12 | 2022-12-25 | 1 | 採用: Shape + Seasons / MI: MI_JapaneseMapleLeaf |
 
 ## Materials/YinYang
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
 | [ ] | M_YinYang1 | M | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_YinYang |
-| [x] | M_YinYang2 | M |  | 2023-08-20 | 2023-08-20 | 0 |  |
+| [x] | M_YinYang2 | M |  | 2023-08-20 | 2023-08-20 | 0 | 採用: Shape |
 
 ## Materials/SnowFlake
 
 | 採用 | 名前 | 種別 | 配置済 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|---|---|:--:|---|
-| [x] | M_CinematicSnow | M |  | 2026-03-16 | 2026-03-16 | 0 |  |
-| [ ] | M_SnowFlake | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_SnowFlake |
-| [x] | M_SnowFlake_V2 | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | MI: MI_SnowFlake_V2 |
+| [x] | M_CinematicSnow | M |  | 2026-03-16 | 2026-03-16 | 0 | 採用: Shape + Seasons |
+| [x] | M_SnowFlake | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Seasons / MI: MI_SnowFlake |
+| [x] | M_SnowFlake_V2 | M | ✓ | 2023-06-20 | 2023-06-20 | 1 | 採用: Shape + Seasons / MI: MI_SnowFlake_V2 |
 
 ## Materials/Animation
 
