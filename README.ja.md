@@ -19,13 +19,13 @@
 
 | Radar | Animation |
 | :---: | :---: |
-| ![Rader](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Rader.gif) | ![Aniamtion](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Animation.gif) |
+| ![Radar](gif/Rader.gif) | ![Animation](gif/Animation.gif) |
 | **SnowFlake** | **Transition** |
-| ![Snow](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Snow.gif) | ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Transition.gif) |
+| ![SnowFlake](gif/Snow.gif) | ![Transition](gif/Transition.gif) |
 | **OldTV** | **Others** |
-| ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/OldTV.gif) | ![Transition](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/Samples.gif) |
+| ![OldTV](gif/OldTV.gif) | ![Others](gif/Samples.gif) |
 | **PageCurl** | |
-| ![PageCurl](https://github.com/EmbarrassingMoment/ProceduralDrawingMaterialSamples/blob/master/gif/PageCurl.gif) | |
+| ![PageCurl](gif/PageCurl.gif) | |
 
 
 ## 動作環境
