@@ -13,3 +13,4 @@ Saved
 *.xcodeproj
 *.xcworkspace
 Tools/__pycache__
+materials.csv
