@@ -2,7 +2,7 @@
 
 Content 以下の Material / PostProcess マテリアルの全一覧。ジャンル別 Showcase レベルに載せるものを選ぶための作業用チェックリスト。
 
-- 対象: 174 件(M_ 134 / PP 40)
+- 対象: 175 件(M_ 134 / PP 41)
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
@@ -203,6 +203,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_SwordSlash | M | PostProcess |  | 2026-08-23 | 2026-08-23 | 0 |  |
 |  | PP_Burn_Transition | PP | PostProcess | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: PPI_Burn_Transition |
 |  | PP_Burn_Transition_V2 | PP | PostProcess |  | 2026-04-06 | 2026-09-19 | 1 | MI: PPI_Burn_Transition_V2 |
+|  | PP_DamageVignette | PP | PostProcess |  | 2026-09-27 | 2026-09-27 | 1 | MI: PPI_DamageVignette |
 |  | PP_Flip_Transition | PP | PostProcess | ✓ | 2026-01-20 | 2026-06-13 | 3 | ⚠重複 / MI: PPI_Flip_Transition, PPI_Flip_Transition, PPI_Flip_Transition_V2 |
 |  | PP_Glitch | PP | PostProcess |  | 2024-01-27 | 2024-01-27 | 0 |  |
 |  | PP_HalfTone | PP | PostProcess |  | 2025-08-30 | 2026-01-05 | 1 | MI: PPI_HalfTone |
