@@ -205,6 +205,7 @@ Mi_HazardMark,Surface
 Mi_Hex_Fade2,Surface
 PPI_Burn_Transition,PostProcess
 PPI_Burn_Transition_V2,PostProcess
+PPI_DamageVignette,PostProcess
 PPI_Flip_Transition,PostProcess
 PPI_Flip_Transition,PostProcess
 PPI_Flip_Transition_V2,PostProcess
@@ -222,6 +223,7 @@ PPI_VHS,PostProcess
 PPI_VHS_V2,PostProcess
 PP_Burn_Transition,PostProcess
 PP_Burn_Transition_V2,PostProcess
+PP_DamageVignette,PostProcess
 PP_Flip_Transition,PostProcess
 PP_Glitch,PostProcess
 PP_HalfTone,PostProcess
