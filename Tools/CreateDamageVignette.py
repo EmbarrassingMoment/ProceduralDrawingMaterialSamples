@@ -5,12 +5,14 @@
   /Game/Materials/PostProcess/PPI_DamageVignette  パラメータ調整用のインスタンス
 
 テクスチャは使わず、ScreenPosition から求めた距離と正弦波だけで描く。
+時間で動く要素は入れない。ダメージを受けていることを伝えるのが目的で、脈動や縁の
+揺れは演出そのものが目を引いてしまうため (UI は通知の手段であって目的ではない)。
 Blendable Location は After Tonemapping なので、シーンのライティングや露出の影響を
 受けずに常に同じ色で画面隅が染まる。
 
 グラフの流れ:
   UV -> 中心からの距離 (楕円と矩形をブレンド) -> 角度ベースの正弦波で縁を崩す
-     -> SmoothStep でマスク化 -> Intensity と脈動を掛ける
+     -> SmoothStep でマスク化 -> Intensity を掛ける
      -> シーン色に血の色を乗算し、角を EdgeColor へ沈める -> EmissiveColor
 
 エディタ内から: Output Log で  py "<repo>/Tools/CreateDamageVignette.py"
@@ -20,7 +22,7 @@ Blendable Location は After Tonemapping なので、シーンのライティン
       -EnablePlugins=PythonScriptPlugin -ExecCmds="py <repo>/Tools/CreateDamageVignette.py"
       -unattended -nosplash
 
-同名アセットがある場合は作り直す (手で編集した内容は消えるので注意)。
+同名アセットがある場合は中身を作り直す (手で編集した内容は消えるので注意)。
 環境変数 PPDV_SCREENSHOT=1 を付けると、Showcase_Shape レベルに PostProcessVolume を
 置いて効果を写したスクリーンショットを撮り、レベルは保存せずにエディタを終了する (検証用)。
 さらに PPDV_DEBUG=1 を付けると、単色の赤 / 赤とシーンの Lerp / マスクのみ / シーンそのまま を出力する
@@ -96,14 +98,15 @@ class Graph(object):
 def build_material(name=MAT_NAME, debug=None, save=True):
     """マテリアルを組み立てる。debug は検証用の出力切り替え (None / "const3" / "red" / "mask" / "scene")。"""
     mat_path = FOLDER + "/" + name
-    for path in ((MI_PATH, mat_path) if name == MAT_NAME else (mat_path,)):
-        if eal.does_asset_exist(path):
-            log("deleting existing " + path)
-            eal.delete_asset(path)
-
-    mat = tools.create_asset(name, FOLDER, unreal.Material, unreal.MaterialFactoryNew())
+    if eal.does_asset_exist(mat_path):
+        # 既存アセットは削除せず中身だけ作り直す (ファイルがロックされていても動く)
+        log("rebuilding existing " + mat_path)
+        mat = unreal.load_asset(mat_path)
+        mel.delete_all_material_expressions(mat)
+    else:
+        mat = tools.create_asset(name, FOLDER, unreal.Material, unreal.MaterialFactoryNew())
     if mat is None:
-        raise RuntimeError("create_asset failed: " + mat_path)
+        raise RuntimeError("could not create or load " + mat_path)
 
     mat.set_editor_property("material_domain", unreal.MaterialDomain.MD_POST_PROCESS)
     mat.set_editor_property("blendable_location", enum_value(
@@ -112,7 +115,7 @@ def build_material(name=MAT_NAME, debug=None, save=True):
     mat.set_editor_property("blendable_priority", 0)
 
     g = Graph(mat)
-    G_DAMAGE, G_SHAPE, G_WOBBLE, G_PULSE = "Damage", "Shape", "Wobble", "Pulse"
+    G_DAMAGE, G_SHAPE, G_WOBBLE = "Damage", "Shape", "Wobble"
 
     # ---- 1. UV を中心原点 (-1..1) に直す
     screen = g.node(unreal.MaterialExpressionScreenPosition, -2450, -220)
@@ -162,13 +165,12 @@ def build_material(name=MAT_NAME, debug=None, save=True):
 
     # ---- 3. 縁を崩す。角度ごとに周期の違う正弦波を重ねて血だまりのような凹凸を作る
     #         (Noise ノードは格子状のアーティファクトが出たので使わない)
+    #         静的な形。時間で動かすと演出自体が目を引くので Time は使わない
     #         中心 (v=0) には影響しないよう v に比例させる
     wob_amount = g.scalar("WobbleAmount", 0.25, -1200, 700, G_WOBBLE, 10, 0.0, 1.0,
                           desc="How uneven the inner edge is (0 = clean ellipse)")
     wob_detail = g.scalar("WobbleDetail", 4.0, -1800, 380, G_WOBBLE, 20, 1.0, 12.0,
                           desc="Number of lobes around the border. Integers keep the seam invisible")
-    wob_speed = g.scalar("WobbleSpeed", 0.4, -1800, 560, G_WOBBLE, 30, 0.0, 3.0,
-                         desc="How fast the lobes drift (0 = static)")
     px = g.node(unreal.MaterialExpressionComponentMask, -1800, 250, r=True, g=False, b=False, a=False)
     py = g.node(unreal.MaterialExpressionComponentMask, -1800, 310, r=False, g=True, b=False, a=False)
     g.link(p, px, "")
@@ -177,26 +179,19 @@ def build_material(name=MAT_NAME, debug=None, save=True):
                    desc="angle = atan2(p.y, p.x)")
     g.link(py, angle, "Y")
     g.link(px, angle, "X")
-    time_n = g.node(unreal.MaterialExpressionTime, -1800, 470)
-    t = g.node(unreal.MaterialExpressionMultiply, -1600, 520)
-    g.link(time_n, t, "A")
-    g.link(wob_speed, t, "B")
     base = g.node(unreal.MaterialExpressionMultiply, -1480, 300,
                   desc="angle * WobbleDetail")
     g.link(angle, base, "A")
     g.link(wob_detail, base, "B")
 
     two_pi = 6.2831853
-    harmonics = []   # (周波数倍率, 時間の倍率, 重み)
-    for i, (freq, tmul, weight) in enumerate([(1.0, 1.0, 0.5), (2.0, -1.7, 0.3), (3.0, 0.9, 0.2)]):
+    harmonics = []   # (周波数倍率, 位相 [rad], 重み)。位相をずらして山が重ならないようにする
+    for i, (freq, phase, weight) in enumerate([(1.0, 0.0, 0.5), (2.0, 1.9, 0.3), (3.0, 4.1, 0.2)]):
         y = 300 + i * 140
         f = g.node(unreal.MaterialExpressionMultiply, -1320, y, const_b=freq)
         g.link(base, f, "A")
-        tm = g.node(unreal.MaterialExpressionMultiply, -1320, y + 60, const_b=tmul)
-        g.link(t, tm, "A")
-        ph = g.node(unreal.MaterialExpressionAdd, -1180, y)
+        ph = g.node(unreal.MaterialExpressionAdd, -1180, y, const_b=phase)
         g.link(f, ph, "A")
-        g.link(tm, ph, "B")
         sn = g.node(unreal.MaterialExpressionSine, -1050, y, period=two_pi)
         g.link(ph, sn, "")
         w = g.node(unreal.MaterialExpressionMultiply, -920, y, const_b=weight)
@@ -206,7 +201,7 @@ def build_material(name=MAT_NAME, debug=None, save=True):
     g.link(harmonics[0], sum1, "A")
     g.link(harmonics[1], sum1, "B")
     wobble = g.node(unreal.MaterialExpressionAdd, -650, 420,
-                    desc="wobble = 0.5 sin(a) + 0.3 sin(2a) + 0.2 sin(3a)   (-1..1)")
+                    desc="wobble = 0.5 sin(a) + 0.3 sin(2a + 1.9) + 0.2 sin(3a + 4.1)   (-1..1)")
     g.link(sum1, wobble, "A")
     g.link(harmonics[2], wobble, "B")
 
@@ -233,29 +228,10 @@ def build_material(name=MAT_NAME, debug=None, save=True):
 
     intensity = g.scalar("Intensity", 1.0, -560, -180, G_DAMAGE, 10,
                          desc="Overall strength. Drive this from gameplay (0 = off)")
-    pulse_amount = g.scalar("PulseAmount", 0.15, -560, -30, G_PULSE, 10,
-                            desc="Heartbeat throb depth (0 = none)")
-    pulse_speed = g.scalar("PulseSpeed", 1.5, -560, 120, G_PULSE, 20, 0.0, 5.0,
-                           desc="Heartbeat frequency in Hz")
-    time_p = g.node(unreal.MaterialExpressionTime, -560, 200)
-    pulse_t = g.node(unreal.MaterialExpressionMultiply, -380, 120)
-    g.link(time_p, pulse_t, "A")
-    g.link(pulse_speed, pulse_t, "B")
-    sine = g.node(unreal.MaterialExpressionSine, -240, 120, period=1.0)
-    g.link(pulse_t, sine, "")
-    pulse_mul = g.node(unreal.MaterialExpressionMultiply, -100, 20)
-    g.link(sine, pulse_mul, "A")
-    g.link(pulse_amount, pulse_mul, "B")
-    pulse = g.node(unreal.MaterialExpressionAdd, 40, 20, const_a=1.0,
-                   desc="1 + PulseAmount * sin(Time * PulseSpeed)")
-    g.link(pulse_mul, pulse, "B")
-
-    strength = g.node(unreal.MaterialExpressionMultiply, -100, -200)
-    g.link(intensity, strength, "A")
-    g.link(pulse, strength, "B")
-    mask = g.node(unreal.MaterialExpressionMultiply, 60, -400)
+    mask = g.node(unreal.MaterialExpressionMultiply, 60, -400,
+                  desc="mask *= Intensity  (no pulse: the effect must inform, not attract)")
     g.link(smooth, mask, "A")
-    g.link(strength, mask, "B")
+    g.link(intensity, mask, "B")
     mask_sat = g.node(unreal.MaterialExpressionSaturate, 200, -400)
     g.link(mask, mask_sat, "")
 
@@ -328,10 +304,13 @@ def build_material(name=MAT_NAME, debug=None, save=True):
 
 
 def build_instance(mat):
-    mi = tools.create_asset(MI_NAME, FOLDER, unreal.MaterialInstanceConstant,
-                            unreal.MaterialInstanceConstantFactoryNew())
+    if eal.does_asset_exist(MI_PATH):
+        mi = unreal.load_asset(MI_PATH)
+    else:
+        mi = tools.create_asset(MI_NAME, FOLDER, unreal.MaterialInstanceConstant,
+                                unreal.MaterialInstanceConstantFactoryNew())
     if mi is None:
-        raise RuntimeError("create_asset failed: " + MI_PATH)
+        raise RuntimeError("could not create or load " + MI_PATH)
     mel.set_material_instance_parent(mi, mat)
     # 代表的な項目をインスタンス側に出しておく (値は親と同じ)
     mel.set_material_instance_scalar_parameter_value(mi, "Intensity", 1.0)
