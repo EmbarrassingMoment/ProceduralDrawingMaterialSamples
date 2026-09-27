@@ -7,11 +7,12 @@
 テクスチャは使わず、ScreenPosition から求めた距離と正弦波だけで描く。
 時間で動く要素は入れない。ダメージを受けていることを伝えるのが目的で、脈動や縁の
 揺れは演出そのものが目を引いてしまうため (UI は通知の手段であって目的ではない)。
+形は上下左右で対称にする。どこか一方向だけ見づらくなってはいけない。
 Blendable Location は After Tonemapping なので、シーンのライティングや露出の影響を
 受けずに常に同じ色で画面隅が染まる。
 
 グラフの流れ:
-  UV -> 中心からの距離 (楕円と矩形をブレンド) -> 角度ベースの正弦波で縁を崩す
+  UV -> 中心からの距離 (楕円と矩形をブレンド) -> 角度ベースの余弦波で縁を崩す (上下左右対称)
      -> SmoothStep でマスク化 -> Intensity を掛ける
      -> シーン色に血の色を乗算し、角を EdgeColor へ沈める -> EmissiveColor
 
@@ -26,7 +27,7 @@ Blendable Location は After Tonemapping なので、シーンのライティン
 環境変数 PPDV_SCREENSHOT=1 を付けると、Showcase_Shape レベルに PostProcessVolume を
 置いて効果を写したスクリーンショットを撮り、レベルは保存せずにエディタを終了する (検証用)。
 さらに PPDV_DEBUG=1 を付けると、単色の赤 / 赤とシーンの Lerp / マスクのみ / シーンそのまま を出力する
-派生マテリアル (保存しない) も続けて撮影する。
+派生マテリアル (保存しない) も続けて撮影する (PPDV_DEBUG=mask のように種類を絞ることもできる)。
 PPDV_QUIT=1 は生成後にそのまま終了する。
 
 型の不一致などのシェーダーコンパイルエラーは Python 側には上がってこないので、実行後に
@@ -169,39 +170,38 @@ def build_material(name=MAT_NAME, debug=None, save=True):
     #         中心 (v=0) には影響しないよう v に比例させる
     wob_amount = g.scalar("WobbleAmount", 0.25, -1200, 700, G_WOBBLE, 10, 0.0, 1.0,
                           desc="How uneven the inner edge is (0 = clean ellipse)")
-    wob_detail = g.scalar("WobbleDetail", 4.0, -1800, 380, G_WOBBLE, 20, 1.0, 12.0,
-                          desc="Number of lobes around the border. Integers keep the seam invisible")
-    px = g.node(unreal.MaterialExpressionComponentMask, -1800, 250, r=True, g=False, b=False, a=False)
-    py = g.node(unreal.MaterialExpressionComponentMask, -1800, 310, r=False, g=True, b=False, a=False)
-    g.link(p, px, "")
-    g.link(p, py, "")
+    wob_detail = g.scalar("WobbleDetail", 2.0, -1800, 380, G_WOBBLE, 20, 1.0, 6.0,
+                          desc="Lobes per quadrant. Integers keep the mirror seams smooth")
+    # 上下左右で対称になるよう |p| の角度 (0..pi/2) を使い、各象限に鏡映する。
+    # 軸上で折れ目が出ないよう、角度 0 と pi/2 で傾きが 0 になる cos(2k * angle) だけを使う
     angle = g.node(unreal.MaterialExpressionArctangent2, -1650, 280,
-                   desc="angle = atan2(p.y, p.x)")
-    g.link(py, angle, "Y")
-    g.link(px, angle, "X")
-    base = g.node(unreal.MaterialExpressionMultiply, -1480, 300,
-                  desc="angle * WobbleDetail")
+                   desc="angle = atan2(|p.y|, |p.x|)  (0..pi/2, mirrored into all 4 quadrants)")
+    g.link(mask_g, angle, "Y")
+    g.link(mask_r, angle, "X")
+    base = g.node(unreal.MaterialExpressionMultiply, -1480, 300, const_b=2.0,
+                  desc="angle * 2  (even multiples keep the mirror seams smooth)")
     g.link(angle, base, "A")
-    g.link(wob_detail, base, "B")
+    based = g.node(unreal.MaterialExpressionMultiply, -1320, 300,
+                   desc="* WobbleDetail")
+    g.link(base, based, "A")
+    g.link(wob_detail, based, "B")
 
     two_pi = 6.2831853
-    harmonics = []   # (周波数倍率, 位相 [rad], 重み)。位相をずらして山が重ならないようにする
-    for i, (freq, phase, weight) in enumerate([(1.0, 0.0, 0.5), (2.0, 1.9, 0.3), (3.0, 4.1, 0.2)]):
+    harmonics = []   # (周波数倍率, 重み)
+    for i, (freq, weight) in enumerate([(1.0, 0.5), (2.0, 0.3), (3.0, 0.2)]):
         y = 300 + i * 140
-        f = g.node(unreal.MaterialExpressionMultiply, -1320, y, const_b=freq)
-        g.link(base, f, "A")
-        ph = g.node(unreal.MaterialExpressionAdd, -1180, y, const_b=phase)
-        g.link(f, ph, "A")
-        sn = g.node(unreal.MaterialExpressionSine, -1050, y, period=two_pi)
-        g.link(ph, sn, "")
+        f = g.node(unreal.MaterialExpressionMultiply, -1180, y, const_b=freq)
+        g.link(based, f, "A")
+        cs = g.node(unreal.MaterialExpressionCosine, -1050, y, period=two_pi)
+        g.link(f, cs, "")
         w = g.node(unreal.MaterialExpressionMultiply, -920, y, const_b=weight)
-        g.link(sn, w, "A")
+        g.link(cs, w, "A")
         harmonics.append(w)
     sum1 = g.node(unreal.MaterialExpressionAdd, -780, 360)
     g.link(harmonics[0], sum1, "A")
     g.link(harmonics[1], sum1, "B")
     wobble = g.node(unreal.MaterialExpressionAdd, -650, 420,
-                    desc="wobble = 0.5 sin(a) + 0.3 sin(2a + 1.9) + 0.2 sin(3a + 4.1)   (-1..1)")
+                    desc="wobble = 0.5 cos(2Da) + 0.3 cos(4Da) + 0.2 cos(6Da)   (-1..1), D = WobbleDetail")
     g.link(sum1, wobble, "A")
     g.link(harmonics[2], wobble, "B")
 
@@ -417,9 +417,11 @@ def main():
         raise
     if screenshot_mode:
         shots = [(mat, SCREENSHOT_NAME)]
-        if os.environ.get("PPDV_DEBUG") == "1":
-            # 検証用の派生マテリアル (保存しない)
-            for mode in ("const3", "red", "mask", "scene"):
+        debug = os.environ.get("PPDV_DEBUG", "")
+        if debug:
+            # 検証用の派生マテリアル (保存しない)。"1" で全部、または "mask,red" のように指定
+            modes = ("const3", "red", "mask", "scene") if debug == "1" else debug.split(",")
+            for mode in modes:
                 shots.append((build_material(MAT_NAME + "_Dbg" + mode.capitalize(), mode, save=False),
                               "PP_DamageVignette_dbg_%s.png" % mode))
         verify_screenshot(shots)
