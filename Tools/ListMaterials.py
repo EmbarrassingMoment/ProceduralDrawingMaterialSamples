@@ -36,10 +36,13 @@ FOLDER_ORDER = [
     "Export", "Materials/Export", "WIP",
 ]
 
-# ジャンル別 Showcase レベル。参照を読んで採用状況を判定する
+# ジャンル別 Showcase レベル。参照を読んで採用状況を判定する。
+# 3 つ目はドメインの絞り込みで、None なら参照しているものをすべて数える。
 SHOWCASE_LEVELS = [
-    ("Shape", CONTENT / "Levels/Showcase_Shape.umap"),
-    ("Seasons", CONTENT / "Levels/Showcase_Seasons.umap"),
+    ("Shape", CONTENT / "Levels/Showcase_Shape.umap", None),
+    ("Seasons", CONTENT / "Levels/Showcase_Seasons.umap", None),
+    # 小道具として図形のマテリアルも置いているので、PostProcess ドメインのものだけ数える
+    ("PostProcess", CONTENT / "Levels/Showcase_PostProcess.umap", "PostProcess"),
 ]
 LEGACY_LEVEL = CONTENT / "Levels/Showcase.umap"
 
@@ -116,17 +119,19 @@ def kind_of(name):
 def collect(domains_csv=None):
     added, updated = git_dates()
     legacy = {r.split(".")[0] for r in refs(LEGACY_LEVEL)} if LEGACY_LEVEL.exists() else set()
-    adopted = defaultdict(list)
-    for label, path in SHOWCASE_LEVELS:
-        if not path.exists():
-            continue
-        for r in refs(path):
-            adopted[base_name(r)].append(label)
-
     domains = {}
     if domains_csv and Path(domains_csv).exists():
         for row in csv.DictReader(open(domains_csv, encoding="utf-8")):
             domains[row["name"]] = row["domain"]
+
+    # パッケージパスで照合する。名前で照合すると、別フォルダの同名アセットまで採用扱いになる
+    adopted = defaultdict(list)
+    for label, path, domain in SHOWCASE_LEVELS:
+        if not path.exists():
+            continue
+        for r in refs(path):
+            if domain is None or domains.get(base_name(r)) == domain:
+                adopted[r.split(".")[0]].append(label)
 
     rows = []
     for p in sorted(CONTENT.rglob("*.uasset")):
@@ -145,7 +150,7 @@ def collect(domains_csv=None):
             size_kb=p.stat().st_size // 1024,
             added=dates_for(rel, added, updated)[0], updated=dates_for(rel, added, updated)[1],
             in_legacy_showcase="Y" if "/Game/" + rel[:-7] in legacy else "",
-            adopted="+".join(sorted(set(adopted.get(name, [])))),
+            adopted="+".join(sorted(set(adopted.get("/Game/" + rel[:-7], [])))),
             parent=parent, uses_mf=";".join(mfs)))
     return rows
 
@@ -182,7 +187,7 @@ def write_markdown(rows, out, has_domains):
             sum(1 for r in mats if r["kind"] == "PP")),
         "- `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載",
     ]
-    for label, _ in SHOWCASE_LEVELS:
+    for label, _, _ in SHOWCASE_LEVELS:
         n = sum(1 for r in mats if label in r["adopted"].split("+"))
         out_lines.append("  - %s: %d 件(`Tools/BuildShowcase%s.py`)" % (label, n, label))
     out_lines += [
@@ -245,7 +250,7 @@ def main(argv):
     write_markdown(rows, md_out, bool(domains))
     print("total", len(rows), dict(Counter(r["kind"] for r in rows)))
     print("wrote", csv_out, "and", md_out)
-    for label, _ in SHOWCASE_LEVELS:
+    for label, _, _ in SHOWCASE_LEVELS:
         n = sum(1 for r in rows if r["kind"] in ("M", "PP") and label in r["adopted"].split("+"))
         print("  adopted in %s: %d" % (label, n))
 

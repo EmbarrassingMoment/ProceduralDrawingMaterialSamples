@@ -6,6 +6,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
+  - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
 - `旧` 列は初代 Showcase.umap に配置済みのもの
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
 - `追加` / `更新` は git 履歴上の日付。`⚠重複` は同名アセットが別フォルダにもあるもの
@@ -198,49 +199,49 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Half_Tone_Transition | M | PostProcess |  | 2025-03-15 | 2026-09-19 | 0 |  |
-|  | M_PP_SpiralWipe | PP | PostProcess |  | 2026-08-03 | 2026-09-19 | 1 | MI: MI_PP_SpiralWipe |
+| PostProcess | M_Half_Tone_Transition | M | PostProcess |  | 2025-03-15 | 2026-09-19 | 0 |  |
+| PostProcess | M_PP_SpiralWipe | PP | PostProcess |  | 2026-08-03 | 2026-09-19 | 1 | MI: MI_PP_SpiralWipe |
 |  | M_SwordSlash | M | PostProcess |  | 2026-08-23 | 2026-08-23 | 0 |  |
 |  | PP_Burn_Transition | PP | PostProcess | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: PPI_Burn_Transition |
-|  | PP_Burn_Transition_V2 | PP | PostProcess |  | 2026-04-06 | 2026-09-19 | 1 | MI: PPI_Burn_Transition_V2 |
-|  | PP_DamageVignette | PP | PostProcess |  | 2026-09-27 | 2026-09-27 | 1 | MI: PPI_DamageVignette |
+| PostProcess | PP_Burn_Transition_V2 | PP | PostProcess |  | 2026-04-06 | 2026-09-19 | 1 | MI: PPI_Burn_Transition_V2 |
+| PostProcess | PP_DamageVignette | PP | PostProcess |  | 2026-09-27 | 2026-09-27 | 1 | MI: PPI_DamageVignette |
 |  | PP_Flip_Transition | PP | PostProcess | ✓ | 2026-01-20 | 2026-06-13 | 3 | ⚠重複 / MI: PPI_Flip_Transition, PPI_Flip_Transition, PPI_Flip_Transition_V2 |
-|  | PP_Glitch | PP | PostProcess |  | 2024-01-27 | 2024-01-27 | 0 |  |
-|  | PP_HalfTone | PP | PostProcess |  | 2025-08-30 | 2026-01-05 | 1 | MI: PPI_HalfTone |
-|  | PP_Half_Tone | PP | PostProcess | ✓ | 2025-06-28 | 2026-01-05 | 0 |  |
-|  | PP_Halftone_Color | PP | PostProcess |  | 2026-04-06 | 2026-04-06 | 0 | ⚠重複 |
-|  | PP_Hex_Fade | PP | PostProcess |  | 2026-01-15 | 2026-09-19 | 0 |  |
+| PostProcess | PP_Glitch | PP | PostProcess |  | 2024-01-27 | 2024-01-27 | 0 |  |
+| PostProcess | PP_HalfTone | PP | PostProcess |  | 2025-08-30 | 2026-01-05 | 1 | MI: PPI_HalfTone |
+| PostProcess | PP_Half_Tone | PP | PostProcess | ✓ | 2025-06-28 | 2026-01-05 | 0 |  |
+| PostProcess | PP_Halftone_Color | PP | PostProcess |  | 2026-04-06 | 2026-04-06 | 0 | ⚠重複 |
+| PostProcess | PP_Hex_Fade | PP | PostProcess |  | 2026-01-15 | 2026-09-19 | 0 |  |
 |  | PP_Hex_Transition | PP | PostProcess |  | 2026-02-02 | 2026-05-18 | 1 | ⚠重複 / MI: PPI_Hex_Transition |
-|  | PP_Hex_Transition_V2 | PP | PostProcess |  | 2026-05-18 | 2026-09-19 | 0 |  |
-|  | PP_Hypnosis_Transition | PP | PostProcess |  | 2025-06-28 | 2026-09-19 | 0 |  |
+| PostProcess | PP_Hex_Transition_V2 | PP | PostProcess |  | 2026-05-18 | 2026-09-19 | 0 |  |
+| PostProcess | PP_Hypnosis_Transition | PP | PostProcess |  | 2025-06-28 | 2026-09-19 | 0 |  |
 |  | PP_NVG | PP | PostProcess | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: PPI_NVG |
-|  | PP_NVG_V2 | PP | PostProcess |  | 2026-06-16 | 2026-07-05 | 1 | MI: PPI_NVG_V2 |
-|  | PP_Old_TV | PP | PostProcess | ✓ | 2025-07-11 | 2026-01-05 | 1 | MI: PPI_Old_TV |
-|  | PP_PageCurl | PP | PostProcess | ✓ | 2026-01-05 | 2026-05-18 | 1 | MI: PPI_PageCurl |
+| PostProcess | PP_NVG_V2 | PP | PostProcess |  | 2026-06-16 | 2026-07-05 | 1 | MI: PPI_NVG_V2 |
+| PostProcess | PP_Old_TV | PP | PostProcess | ✓ | 2025-07-11 | 2026-01-05 | 1 | MI: PPI_Old_TV |
+| PostProcess | PP_PageCurl | PP | PostProcess | ✓ | 2026-01-05 | 2026-05-18 | 1 | MI: PPI_PageCurl |
 |  | PP_Rect_Dissolve | PP | PostProcess |  | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | PP_Rect_Transition | PP | PostProcess |  | 2025-12-30 | 2026-05-29 | 0 |  |
-|  | PP_ScanLine | PP | PostProcess | ✓ | 2026-03-16 | 2026-03-16 | 0 | ⚠重複 |
+| PostProcess | PP_Rect_Transition | PP | PostProcess |  | 2025-12-30 | 2026-05-29 | 0 |  |
+| PostProcess | PP_ScanLine | PP | PostProcess | ✓ | 2026-03-16 | 2026-03-16 | 0 | ⚠重複 |
 |  | PP_Scanning_System | PP | PostProcess |  | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | PP_SliceTransition | PP | PostProcess |  | 2026-08-03 | 2026-09-19 | 1 | MI: MI_PP_SliceTransition |
-|  | PP_Slice_Transition | PP | PostProcess | ✓ | 2024-11-24 | 2026-05-18 | 0 |  |
-|  | PP_SpeedLine | PP | PostProcess |  | 2026-03-16 | 2026-03-16 | 0 |  |
-|  | PP_SumiE_Param | PP | PostProcess |  | 2026-07-20 | 2026-09-19 | 0 |  |
-|  | PP_Transition | PP | PostProcess |  | 2026-02-02 | 2026-02-02 | 0 |  |
-|  | PP_Transition_Ripple | PP | PostProcess | ✓ | 2025-05-24 | 2026-09-19 | 1 | MI: PPI_Transition_Ripple |
+| PostProcess | PP_SliceTransition | PP | PostProcess |  | 2026-08-03 | 2026-09-19 | 1 | MI: MI_PP_SliceTransition |
+| PostProcess | PP_Slice_Transition | PP | PostProcess | ✓ | 2024-11-24 | 2026-05-18 | 0 |  |
+| PostProcess | PP_SpeedLine | PP | PostProcess |  | 2026-03-16 | 2026-03-16 | 0 |  |
+| PostProcess | PP_SumiE_Param | PP | PostProcess |  | 2026-07-20 | 2026-09-19 | 0 |  |
+| PostProcess | PP_Transition | PP | PostProcess |  | 2026-02-02 | 2026-02-02 | 0 |  |
+| PostProcess | PP_Transition_Ripple | PP | PostProcess | ✓ | 2025-05-24 | 2026-09-19 | 1 | MI: PPI_Transition_Ripple |
 |  | PP_Transition_Warp | PP | PostProcess |  | 2026-02-02 | 2026-03-16 | 1 | MI: PPI_Transition_Warp |
-|  | PP_Transition_Warp_V2 | PP | PostProcess |  | 2026-02-02 | 2026-09-19 | 0 |  |
-|  | PP_Transtion_Flip_V2 | PP | PostProcess | ✓ | 2026-03-16 | 2026-03-16 | 1 | ⚠重複 / MI: PPI_Transtion_Flip_V2 |
+| PostProcess | PP_Transition_Warp_V2 | PP | PostProcess |  | 2026-02-02 | 2026-09-19 | 0 |  |
+| PostProcess | PP_Transtion_Flip_V2 | PP | PostProcess | ✓ | 2026-03-16 | 2026-03-16 | 1 | ⚠重複 / MI: PPI_Transtion_Flip_V2 |
 |  | PP_Triangle_Transition | PP | PostProcess |  | 2026-02-02 | 2026-02-02 | 1 | MI: PPI_Triangle_Transition |
-|  | PP_Triangle_Transition_V2 | PP | PostProcess |  | 2026-05-29 | 2026-05-29 | 0 |  |
+| PostProcess | PP_Triangle_Transition_V2 | PP | PostProcess |  | 2026-05-29 | 2026-05-29 | 0 |  |
 |  | PP_VHS_V1 | PP | PostProcess |  | 2024-12-28 | 2026-01-09 | 1 | MI: PPI_VHS |
 |  | PP_VHS_V2 | PP | PostProcess |  | 2026-01-09 | 2026-01-09 | 1 | MI: PPI_VHS_V2 |
-|  | PP_VortexDrainTransition | PP | PostProcess |  | 2026-07-14 | 2026-09-19 | 1 | MI: MI_PP_VortexDrainTransition |
+| PostProcess | PP_VortexDrainTransition | PP | PostProcess |  | 2026-07-14 | 2026-09-19 | 1 | MI: MI_PP_VortexDrainTransition |
 
 ## Materials/PostProcess/MaterialFunctions/VHS
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | PP_VHSV3 | PP | PostProcess |  | 2026-06-21 | 2026-07-05 | 0 |  |
+| PostProcess | PP_VHSV3 | PP | PostProcess |  | 2026-06-21 | 2026-07-05 | 0 |  |
 
 ## Materials
 
