@@ -7,6 +7,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
+  - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
 - `旧` 列は初代 Showcase.umap に配置済みのもの
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
 - `追加` / `更新` は git 履歴上の日付。`⚠重複` は同名アセットが別フォルダにもあるもの
@@ -293,10 +294,10 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_Checker | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Checker |
 |  | M_Checker2 | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Checker2 |
 |  | M_CircleGauge | M | Surface | ✓ | 2024-07-13 | 2024-07-13 | 1 | MI: MI_CircleGauge |
-|  | M_Loading_Icon_UI | M | UI |  | 2026-03-16 | 2026-03-16 | 0 |  |
+| UI_LoadingIcon | M_Loading_Icon_UI | M | UI |  | 2026-03-16 | 2026-03-16 | 0 |  |
 |  | M_Loading_Icon_V2 | M | Surface |  | 2026-03-16 | 2026-03-16 | 0 |  |
-|  | M_Loading_Icon_V3 | M | UI |  | 2026-02-27 | 2026-05-18 | 1 | MI: MI_Loading_Icon_V3 |
-|  | M_Loading_Icon_V4 | M | UI |  | 2026-03-16 | 2026-03-16 | 0 |  |
+| UI_LoadingIcon | M_Loading_Icon_V3 | M | UI |  | 2026-02-27 | 2026-05-18 | 1 | MI: MI_Loading_Icon_V3 |
+| UI_LoadingIcon | M_Loading_Icon_V4 | M | UI |  | 2026-03-16 | 2026-03-16 | 0 |  |
 |  | M_OutLine_V2 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
 |  | M_Outline | M | Surface |  | 2025-12-13 | 2026-01-05 | 1 | MI: MI_Outline |
 |  | M_Potion | M | Surface |  | 2025-12-30 | 2026-01-05 | 1 | MI: MI_Posion |
@@ -310,13 +311,13 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_LoadingBoxes | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
+| UI_LoadingIcon | M_LoadingBoxes | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
 
 ## Materials/Ui/LoadingIcon
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_LoadingIcon | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
+| UI_LoadingIcon | M_LoadingIcon | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
 
 ## Export
 

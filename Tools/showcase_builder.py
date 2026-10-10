@@ -5,11 +5,14 @@
 - build / run: マテリアルを Plane に貼って壁面に並べる (Shape, Seasons)
 - build_booths / run_booths: PostProcess マテリアル用。範囲を区切った PostProcessVolume と
   同じ小道具を 1 マテリアルずつ「ブース」として一列に並べ、中に入るとその効果がかかる
+- build_widget_level / run_widget: UI マテリアル用。ウィジェットに並べ、空のレベルで再生すると
+  画面に重ねて表示する
 
 使う側の例:
     import showcase_builder as sb
     sb.run("/Game/Levels/Showcase_Xxx", ROWS, "Showcase_Xxx", "Showcase_Xxx.png")
 """
+import json
 import os
 import time
 
@@ -142,8 +145,11 @@ def _spawn_mesh(mesh, location, rotation, scale, folder, label, material=None):
     return actor
 
 
-def _open_level(level_path, outliner_folder, log):
-    """レベルを開く。既存なら削除せず開き直し、前回このスクリプトが置いたアクターだけ消す。"""
+def _open_level(level_path, outliner_folder, log, template=TEMPLATE):
+    """レベルを開く。既存なら削除せず開き直し、前回このスクリプトが置いたアクターだけ消す。
+
+    新規作成時は template から作る。template が None なら何も無い空のレベルにする。
+    """
     if eal.does_asset_exist(level_path):
         if not les.load_level(level_path):
             raise RuntimeError("load_level failed: " + level_path)
@@ -154,8 +160,12 @@ def _open_level(level_path, outliner_folder, log):
                 eas.destroy_actor(a)
                 removed += 1
         log("reusing existing level, removed %d actors" % removed)
+    elif template is None:
+        if not les.new_level(level_path, False):
+            raise RuntimeError("new_level failed")
+        log("created empty level")
     else:
-        if not les.new_level_from_template(level_path, TEMPLATE):
+        if not les.new_level_from_template(level_path, template):
             raise RuntimeError("new_level_from_template failed")
         log("created level from template")
 
@@ -395,6 +405,251 @@ def build_booths(level_path, groups, outliner_folder, layout, tag="Showcase"):
     return booths, missing
 
 
+# ------------------------------------------------------------------ UI ウィジェット
+# UI ドメインのマテリアルはメッシュに貼れないので、ウィジェットに並べて画面に重ねて見せる。
+# ウィジェットの中身は UE 5.8 の UMGToolSet (AllToolsets プラグインに含まれる) で組む。
+# UMGToolSet の関数は Python に直接は出ていないので、ToolsetRegistry に JSON で渡して呼ぶ。
+# レベルブループリントは Python から作れないため、BeginPlay でウィジェットを画面に出すだけの
+# アクター (BP_WidgetShowcase) を空のレベルに置く。
+WIDGET_FOLDER = "/Game/Widgets"
+WIDGET_ACTOR_BP = WIDGET_FOLDER + "/BP_WidgetShowcase"
+UMG_TOOLSET = "UMGToolSet.UMGToolSet"
+
+bel = unreal.BlueprintEditorLibrary
+
+
+class WidgetLayout(object):
+    """ウィジェットに並べるときの設定。大きさは 1080p 基準の Slate 単位、色はリニア値。"""
+
+    def __init__(self, cell_size=256.0, cell_gap=48.0, columns=5, row_gap=40.0,
+                 group_gap=72.0, label_gap=12.0, heading_gap=24.0,
+                 label_size=18, heading_size=40,
+                 background=(0.007, 0.007, 0.007), cell_background=(0.019, 0.019, 0.019),
+                 label_color=(0.45, 0.45, 0.45), heading_color=(1.0, 0.262, 0.0)):
+        self.cell_size = cell_size            # 1 マテリアルを描く正方形の一辺
+        self.cell_gap = cell_gap              # 横の間隔
+        self.columns = columns                # 1 行に並べる数。超えたら次の行へ
+        self.row_gap = row_gap                # 同じグループ内の行の間隔
+        self.group_gap = group_gap            # グループ間の間隔
+        self.label_gap = label_gap            # マテリアルとその名前の間隔
+        self.heading_gap = heading_gap        # 見出しと 1 行目の間隔
+        self.label_size = label_size
+        self.heading_size = heading_size
+        self.background = background          # 画面全体の背景
+        self.cell_background = cell_background  # マテリアルを描く範囲が分かるよう少し明るくする
+        self.label_color = label_color
+        self.heading_color = heading_color    # 3D の Showcase の見出しと同じオレンジ (sRGB 255, 140, 0)
+
+
+def _umg(tool, **args):
+    """UMGToolSet のツールを呼んで returnValue を返す。"""
+    result = unreal.ToolsetRegistry.execute_tool(UMG_TOOLSET, tool, json.dumps(args))
+    if not result.is_complete or result.error:
+        raise RuntimeError("UMGToolSet.%s failed: %s" % (tool, result.error))
+    return json.loads(result.value).get("returnValue")
+
+
+def _ref(obj):
+    return {"refPath": obj.get_path_name()}
+
+
+def _deref(ref):
+    """{"refPath": ...} をオブジェクトに戻す。null は文字列 "None" で返ってくる。"""
+    return unreal.find_object(None, ref["refPath"]) if isinstance(ref, dict) else None
+
+
+def _add_widget(wbp, widget_class, name, parent=None):
+    """ウィジェットを parent の末尾に足し、(ウィジェット, スロット) を返す。parent 無しはルートになる。"""
+    args = dict(widgetBlueprint=_ref(wbp), widgetClass=_ref(widget_class.static_class()),
+                widgetDisplayName=name)
+    if parent is not None:
+        args["parentWidget"] = _ref(parent)
+    info = _umg("AddWidget", **args)
+    return _deref(info["widget"]), _deref(info["slot"])
+
+
+def _linear(rgb):
+    return unreal.LinearColor(rgb[0], rgb[1], rgb[2], 1.0)
+
+
+def _set_text(widget, text, size, rgb):
+    widget.set_text(unreal.Text(text))
+    font = widget.get_editor_property("font")
+    font.size = size
+    widget.set_font(font)
+    color = unreal.SlateColor()
+    color.specified_color = _linear(rgb)
+    color.color_use_rule = unreal.SlateColorStylingMode.USE_COLOR_SPECIFIED
+    widget.set_color_and_opacity(color)
+    widget.set_editor_property("justification", unreal.TextJustify.CENTER)
+
+
+def _open_widget_blueprint(widget_path, log):
+    """ウィジェットを開く。既存なら削除せず、中身のウィジェットだけ消して作り直す。"""
+    if eal.does_asset_exist(widget_path):
+        wbp = unreal.load_asset(widget_path)
+        tree = _umg("GetWidgets", widgetBlueprint=_ref(wbp))
+        roots = [w for w in tree["widgets"]
+                 if not isinstance(w["parent"], dict) and not isinstance(w["namedSlotHost"], dict)]
+        for w in roots:
+            _umg("RemoveWidget", widgetBlueprint=_ref(wbp), widget=w["widget"])
+        log("reusing existing widget, removed %d root widgets" % len(roots))
+        return wbp
+    folder, name = widget_path.rsplit("/", 1)
+    _umg("CreateWidgetBlueprint", folderPath=folder, assetName=name,
+         parentClass=_ref(unreal.UserWidget.static_class()))
+    log("created widget " + widget_path)
+    return unreal.load_asset(widget_path)
+
+
+def build_widget(widget_path, groups, layout, log):
+    """groups のマテリアルを並べたウィジェットを組み立てて保存し、(ウィジェット, 置いた数, 見つからなかったパス) を返す。
+
+    groups は (グループ名, 既定フォルダ, [マテリアル名...]) のリスト。名前の扱いは build() と同じ。
+    """
+    wbp = _open_widget_blueprint(widget_path, log)
+    h_center = unreal.HorizontalAlignment.H_ALIGN_CENTER
+
+    # 画面全体を背景色で塗り、中身を中央に置く
+    root, _ = _add_widget(wbp, unreal.Border, "Background")
+    root.set_brush_color(_linear(layout.background))
+    root.set_padding(unreal.Margin(0.0, 0.0, 0.0, 0.0))
+    root.set_horizontal_alignment(h_center)
+    root.set_vertical_alignment(unreal.VerticalAlignment.V_ALIGN_CENTER)
+    content, _ = _add_widget(wbp, unreal.VerticalBox, "Content", root)
+
+    placed, missing = 0, []
+    for g_idx, (gname, gfolder, names) in enumerate(groups):
+        heading, slot = _add_widget(wbp, unreal.TextBlock, "Heading_%d" % g_idx, content)
+        _set_text(heading, gname, layout.heading_size, layout.heading_color)
+        slot.set_horizontal_alignment(h_center)
+        slot.set_padding(unreal.Margin(0.0, layout.group_gap if g_idx else 0.0,
+                                       0.0, layout.heading_gap))
+        row = None
+        n_in_group = 0
+        for name in names:
+            path = name if name.startswith("/Game/") else gfolder + "/" + name
+            short = path.rsplit("/", 1)[-1]
+            mat = unreal.load_asset(path)
+            if mat is None:
+                missing.append(path)
+                log("MISSING " + path)
+                continue
+            if n_in_group % layout.columns == 0:
+                row_idx = n_in_group // layout.columns
+                row, slot = _add_widget(wbp, unreal.HorizontalBox,
+                                        "Row_%d_%d" % (g_idx, row_idx), content)
+                slot.set_horizontal_alignment(h_center)
+                slot.set_padding(unreal.Margin(0.0, layout.row_gap if row_idx else 0.0, 0.0, 0.0))
+            item, slot = _add_widget(wbp, unreal.VerticalBox, "Item_" + short, row)
+            slot.set_padding(unreal.Margin(layout.cell_gap / 2.0, 0.0, layout.cell_gap / 2.0, 0.0))
+            cell, _ = _add_widget(wbp, unreal.Border, "Cell_" + short, item)
+            cell.set_brush_color(_linear(layout.cell_background))
+            cell.set_padding(unreal.Margin(0.0, 0.0, 0.0, 0.0))
+            size, _ = _add_widget(wbp, unreal.SizeBox, "Size_" + short, cell)
+            size.set_width_override(layout.cell_size)
+            size.set_height_override(layout.cell_size)
+            image, _ = _add_widget(wbp, unreal.Image, "Icon_" + short, size)
+            image.set_brush_from_material(mat)
+            label, slot = _add_widget(wbp, unreal.TextBlock, "Label_" + short, item)
+            _set_text(label, short, layout.label_size, layout.label_color)
+            slot.set_horizontal_alignment(h_center)
+            slot.set_padding(unreal.Margin(0.0, layout.label_gap, 0.0, 0.0))
+            n_in_group += 1
+            placed += 1
+
+    if not _umg("CompileWidgetBlueprint", widgetBlueprint=_ref(wbp)):
+        raise RuntimeError("widget compile failed: " + widget_path)
+    if not eal.save_loaded_asset(wbp, False):
+        raise RuntimeError("widget save failed: " + widget_path)
+    log("saved %s: placed=%d missing=%d" % (widget_path, placed, len(missing)))
+    return wbp, placed, missing
+
+
+def _pin(node, name):
+    for p in node.list_all_pins():
+        if str(p.get_pin_name()) == name:
+            return p
+    raise RuntimeError("pin %s not found on %s" % (name, node.get_name()))
+
+
+def _connect(src, src_pin, dst, dst_pin):
+    out, inp = _pin(src, src_pin), _pin(dst, dst_pin)
+    if any(p.is_same_native_pin(inp) for p in out.list_connected_pins()):
+        return
+    if not out.try_create_connection(inp):
+        raise RuntimeError("could not connect %s.%s -> %s.%s"
+                           % (src.get_name(), src_pin, dst.get_name(), dst_pin))
+
+
+def _ensure_widget_actor(log):
+    """BeginPlay で WidgetClass のウィジェットを作って画面に出すアクター BP を用意する。
+
+    イベントグラフは毎回作り直す: BeginPlay -> Create Widget (WidgetClass) -> Add to Viewport
+    """
+    if eal.does_asset_exist(WIDGET_ACTOR_BP):
+        bp = unreal.load_asset(WIDGET_ACTOR_BP)
+    else:
+        bp = bel.create_blueprint_asset_with_parent(WIDGET_ACTOR_BP, unreal.Actor)
+        log("created " + WIDGET_ACTOR_BP)
+    # 既にあれば False が返るだけ
+    bel.add_member_variable(bp, "WidgetClass", bel.get_class_reference_type(unreal.UserWidget))
+    bel.set_blueprint_variable_instance_editable(bp, "WidgetClass", True)
+
+    graph = bel.find_event_graph(bp)
+    editor = unreal.BlueprintGraphEditor.get_graph_editor(graph)
+    editor.remove_nodes(list(editor.list_all_nodes()))   # 新規 BP の薄い既定イベントも消す
+    bel.compile_blueprint(bp)   # 変数のゲッターがノード一覧に出るようにする
+
+    begin = bel.add_event_override(bp, "ReceiveBeginPlay", unreal.IntPoint(0, 0))
+    get_class = editor.create_node_from_name("Variables|Default|GetWidgetClass",
+                                             unreal.Vector2D(0.0, 160.0), [], None)
+    create = editor.create_node_from_name("UserInterface|CreateWidget",
+                                          unreal.Vector2D(320.0, 0.0), [], None)
+    if begin is None or get_class is None or create is None:
+        raise RuntimeError("could not create the BeginPlay / WidgetClass / CreateWidget nodes")
+    _connect(begin, "then", create, "execute")
+    _connect(get_class, "WidgetClass", create, "Class")
+    # Add to Viewport は UserWidget のメンバー関数なので、戻り値のピンを文脈にして探す
+    ret = _pin(create, "ReturnValue")
+    add_name = next((n for n in editor.list_available_nodes([ret])
+                     if n.replace(" ", "").lower().endswith("|addtoviewport")), None)
+    if add_name is None:
+        raise RuntimeError("Add to Viewport node not found")
+    add = editor.create_node_from_name(add_name, unreal.Vector2D(720.0, 0.0), [ret], None)
+    _connect(create, "then", add, "execute")
+    _connect(create, "ReturnValue", add, "self")
+
+    if not bel.compile_blueprint(bp):
+        raise RuntimeError("compile failed: " + WIDGET_ACTOR_BP)
+    if not eal.save_loaded_asset(bp, False):
+        raise RuntimeError("save failed: " + WIDGET_ACTOR_BP)
+    return bp
+
+
+def build_widget_level(level_path, widget_path, groups, outliner_folder, layout=None,
+                       tag="Showcase"):
+    """ウィジェットを組み立て、それを画面に出すアクターだけを置いた空のレベルを保存する。
+
+    返り値は (ウィジェット, 見つからなかったパス)。
+    """
+    layout = layout or WidgetLayout()
+    log = _logger(tag)
+    wbp, placed, missing = build_widget(widget_path, groups, layout, log)
+    if not placed:
+        raise RuntimeError("no materials were placed")
+    actor_bp = _ensure_widget_actor(log)
+
+    _open_level(level_path, outliner_folder, log, template=None)
+    actor = eas.spawn_actor_from_class(actor_bp.generated_class(), unreal.Vector(0.0, 0.0, 0.0))
+    actor.set_editor_property("WidgetClass", wbp.generated_class())
+    actor.set_actor_label("WidgetShowcase")
+    actor.set_folder_path(outliner_folder)
+    _save(level_path, log, "widget=%s placed=%d missing=%d"
+          % (widget_path.rsplit("/", 1)[-1], placed, len(missing)))
+    return wbp, missing
+
+
 # ------------------------------------------------------------------ 撮影
 def _shoot(shots, log, first_warmup=60.0, warmup=20.0):
     """shots の各 (カメラ, PNG 名) を順に撮影し、終わったらエディタを終了する。
@@ -490,3 +745,80 @@ def run_booths(level_path, groups, outliner_folder, layout, tag=None):
                  for i, (cam, name) in enumerate(booths)]
         _shoot(shots, _logger(tag), first_warmup=90.0, warmup=8.0)
     return booths, missing
+
+
+def _shoot_pie(prefix, widget_class, log, warmup=30.0, count=3, interval=1.0, timeout=180.0):
+    """PIE で再生して画面を count 回撮り、エディタを終了する。
+
+    HighResShot はウィジェットを写さないので、PIE 中に "shot showui" で撮る。shot は名前を
+    指定できない (ScreenShot00000.png のように連番になる) ため、撮った後に
+    <prefix>_<連番>.png へ改名する。UI マテリアルは時間で動くので間隔を空けて複数枚撮る。
+    """
+    shot_dir = os.path.join(unreal.Paths.project_saved_dir(), "Screenshots", "WindowsEditor")
+    if not os.path.isdir(shot_dir):
+        os.makedirs(shot_dir)
+    for f in os.listdir(shot_dir):
+        if f.startswith(prefix + "_") and f.endswith(".png"):
+            os.remove(os.path.join(shot_dir, f))
+    before = set(os.listdir(shot_dir))
+    state = {"t0": time.time(), "start": None, "n": 0, "handle": None}
+    les.editor_request_begin_play()
+
+    def finish(msg):
+        log(msg)
+        unreal.unregister_slate_post_tick_callback(state["handle"])
+        if ues.get_game_world() is not None:
+            les.editor_request_end_play()
+        unreal.SystemLibrary.quit_editor()
+
+    def tick(delta):
+        try:
+            step()
+        except Exception:
+            # 毎フレーム同じ例外を出し続けてエディタが閉じなくなるのを防ぐ
+            finish("screenshot step failed -> quitting editor")
+            raise
+
+    def step():
+        now = time.time()
+        world = ues.get_game_world()
+        if world is None:
+            if now - state["t0"] > timeout:
+                finish("PIE did not start -> quitting editor")
+            return
+        if state["start"] is None:
+            state["start"] = now
+            log("PIE started, waiting %.0f s for shaders" % warmup)
+        elapsed = now - state["start"]
+        if state["n"] < count:
+            if elapsed < warmup + state["n"] * interval:
+                return
+            if state["n"] == 0:
+                shown = [w for w in unreal.WidgetLibrary.get_all_widgets_of_class(
+                    world, widget_class, True) if w.is_in_viewport()]
+                log("widgets in viewport: %d" % len(shown))
+            unreal.SystemLibrary.execute_console_command(world, "shot showui")
+            state["n"] += 1
+        elif elapsed > warmup + count * interval + 5.0:
+            new = sorted(f for f in set(os.listdir(shot_dir)) - before if f.endswith(".png"))
+            for i, f in enumerate(new):
+                os.replace(os.path.join(shot_dir, f),
+                           os.path.join(shot_dir, "%s_%d.png" % (prefix, i + 1)))
+            finish("screenshots written: %d/%d -> quitting editor" % (len(new), count))
+
+    state["handle"] = unreal.register_slate_post_tick_callback(tick)
+    log("screenshot mode: starting PIE")
+
+
+def run_widget(level_path, widget_path, groups, outliner_folder, layout=None, tag=None):
+    """build_widget_level() を呼び、SHOWCASE_SCREENSHOT=1 なら PIE で撮って終了する。
+
+    画像は Saved/Screenshots/WindowsEditor/<outliner_folder>_<連番>.png。
+    """
+    tag = tag or outliner_folder
+    screenshot_mode, (wbp, missing) = _run(
+        lambda: build_widget_level(level_path, widget_path, groups, outliner_folder, layout, tag),
+        tag)
+    if screenshot_mode:
+        _shoot_pie(outliner_folder, wbp.generated_class(), _logger(tag))
+    return wbp, missing
