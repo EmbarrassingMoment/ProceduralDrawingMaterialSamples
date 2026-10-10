@@ -122,6 +122,8 @@ M_Hex_Tiling_Fade_V2,Surface
 M_Hex_V2,Surface
 M_JA3_Loading_Icon,Surface
 M_JapaneseMapleLeaf,Surface
+M_LoadingBoxes,UI
+M_LoadingIcon,UI
 M_Loading_Icon,Surface
 M_Loading_Icon_UI,UI
 M_Loading_Icon_V2,Surface

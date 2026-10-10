@@ -2,7 +2,7 @@
 
 Content 以下の Material / PostProcess マテリアルの全一覧。ジャンル別 Showcase レベルに載せるものを選ぶための作業用チェックリスト。
 
-- 対象: 175 件(M_ 134 / PP 41)
+- 対象: 177 件(M_ 136 / PP 41)
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
@@ -305,6 +305,18 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_Rader_Chart_Core | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
 |  | M_UI_Battery1 | M | UI |  | 2026-04-13 | 2026-04-16 | 0 |  |
 |  | M_UI_ZZZ_HP_Gauge | M | Surface |  | 2024-07-13 | 2026-07-05 | 1 | MI: MI_UI_ZZZ_HP_Gauge |
+
+## Materials/Ui/LoadingBoxes
+
+| 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
+|:--:|---|:--:|:--:|:--:|---|---|:--:|---|
+|  | M_LoadingBoxes | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
+
+## Materials/Ui/LoadingIcon
+
+| 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
+|:--:|---|:--:|:--:|:--:|---|---|:--:|---|
+|  | M_LoadingIcon | M | UI |  | 2026-10-10 | 2026-10-10 | 0 |  |
 
 ## Export
 
