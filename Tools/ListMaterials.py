@@ -44,6 +44,8 @@ SHOWCASE_LEVELS = [
     ("Seasons", CONTENT / "Levels/Showcase_Seasons.umap", None),
     # 小道具として図形のマテリアルも置いているので、PostProcess ドメインのものだけ数える
     ("PostProcess", CONTENT / "Levels/Showcase_PostProcess.umap", "PostProcess"),
+    # UI はウィジェットに並べて画面に重ねる。マテリアルを参照するのはレベルではなくウィジェット
+    ("UI_LoadingIcon", CONTENT / "Widgets/WBP_Showcase_UI_LoadingIcon.uasset", "UI"),
 ]
 LEGACY_LEVEL = CONTENT / "Levels/Showcase.umap"
 
