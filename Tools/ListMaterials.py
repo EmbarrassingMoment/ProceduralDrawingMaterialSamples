@@ -33,6 +33,7 @@ FOLDER_ORDER = [
     "Materials/PostProcess", "Materials/PostProcess/MaterialFunctions/VHS",
     "Materials", "Materials/SF", "Materials/Warp", "Materials/Flare",
     "Materials/Caustics", "Materials/SumiE", "Materials/Ui",
+    "Materials/Ui/LoadingBoxes", "Materials/Ui/LoadingIcon",
     "Export", "Materials/Export", "WIP",
 ]
 
