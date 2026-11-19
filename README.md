@@ -2,9 +2,9 @@
 
 # ProceduralDrawingMaterialSamples
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Repo Size](https://img.shields.io/github/repo-size/EmbarrassingMoment/ProceduralDrawingMaterialSamples)
-[![Sponsor](https://img.shields.io/badge/Sponsor-EmbarrassingMoment-ff69b4?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/EmbarrassingMoment)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
+![Repo Size](https://img.shields.io/github/repo-size/EmbarrassingMoment/ProceduralDrawingMaterialSamples?style=flat)
+[![Sponsor](https://img.shields.io/badge/Sponsor-EmbarrassingMoment-ff69b4?style=flat&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/EmbarrassingMoment)
 
 ## About this Repository
 
