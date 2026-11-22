@@ -6,8 +6,11 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
+  - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
+  - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
+  - UI_Graphic: 2 件(`Tools/BuildShowcaseUI_Graphic.py`)
 - `旧` 列は初代 Showcase.umap に配置済みのもの
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
 - `追加` / `更新` は git 履歴上の日付。`⚠重複` は同名アセットが別フォルダにもあるもの
@@ -92,27 +95,27 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_ECG | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_ECG |
-|  | M_Glitch | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Pulse | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Pulse_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rainbow_Sample | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rainbow_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Rect_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rect_Transtition | M | Surface |  | 2025-08-16 | 2026-01-05 | 1 | MI: MI_Rect_Transtition |
-|  | M_Simple_Wave | M | Surface |  | 2024-07-12 | 2026-01-05 | 0 |  |
-|  | M_Sine_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_SpeedLine | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_SpeedLine |
-|  | M_Spiral | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Spiral |
-|  | M_Star_Trail | M | Surface | ✓ | 2026-01-05 | 2026-01-08 | 0 |  |
-|  | M_Swirl_Transition | M | Surface |  | 2025-11-09 | 2026-01-05 | 2 | MI: MI_Swirl_Transition, MI_Swirl_Transition_V2 |
-|  | M_Triangle | M | Surface |  | 2025-12-20 | 2026-08-23 | 0 |  |
-|  | M_Triangle1 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
-|  | M_Triangle_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
-|  | M_Triangle_Animation_2 | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Triangle_Animation_3 | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_ECG | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_ECG |
+| Animation | M_Glitch | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Pulse | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Pulse_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rainbow_Sample | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rainbow_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Rect_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rect_Transtition | M | Surface |  | 2025-08-16 | 2026-01-05 | 1 | MI: MI_Rect_Transtition |
+| Animation | M_Simple_Wave | M | Surface |  | 2024-07-12 | 2026-01-05 | 0 |  |
+| Animation | M_Sine_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_SpeedLine | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_SpeedLine |
+| Animation | M_Spiral | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Spiral |
+| Animation | M_Star_Trail | M | Surface | ✓ | 2026-01-05 | 2026-01-08 | 0 |  |
+| Animation | M_Swirl_Transition | M | Surface |  | 2025-11-09 | 2026-01-05 | 2 | MI: MI_Swirl_Transition, MI_Swirl_Transition_V2 |
+| Animation | M_Triangle | M | Surface |  | 2025-12-20 | 2026-08-23 | 0 |  |
+| Animation | M_Triangle1 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
+| Animation | M_Triangle_Animation | M | Surface |  | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
+| Animation | M_Triangle_Animation_2 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Triangle_Animation_3 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
 |  | M_Tunnel | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_TunnelV2 | M | Surface |  | 2026-07-20 | 2026-08-03 | 0 |  |
+| Animation | M_TunnelV2 | M | Surface |  | 2026-07-20 | 2026-08-03 | 0 |  |
 
 ## Materials/Hex
 
@@ -261,7 +264,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_Sci-fi_Ring | M | Surface | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_Sci-fi_Ring |
 |  | M_Sci-fi_Tunnel | M | Surface |  | 2023-08-20 | 2023-08-20 | 1 | MI: MI_Sci-fi_Tunnel |
 |  | M_Warp_Effect | M | Surface | ✓ | 2023-08-20 | 2023-08-20 | 1 | ⚠重複 / MI: MI_Warp_Effect |
-|  | M_Warp_Effect_UI | M | UI |  | 2026-05-18 | 2026-05-18 | 0 |  |
+| UI_Graphic | M_Warp_Effect_UI | M | UI |  | 2026-05-18 | 2026-05-18 | 0 |  |
 |  | PP_Hex_Transition | PP | PostProcess |  | 2026-01-15 | 2026-05-18 | 1 | ⚠重複 / MI: PPI_Hex_Transition |
 
 ## Materials/Warp
@@ -288,7 +291,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_2DLemon | M | UI |  | 2026-08-06 | 2026-08-23 | 0 |  |
+| UI_Graphic | M_2DLemon | M | UI |  | 2026-08-06 | 2026-08-23 | 0 |  |
 |  | M_2D_Liquid | M | Surface | ✓ | 2024-07-13 | 2024-07-13 | 0 |  |
 |  | M_7Seg | M | Surface | ✓ | 2026-01-05 | 2026-08-23 | 1 | MI: MI_7Seg |
 |  | M_Checker | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Checker |
@@ -301,10 +304,10 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_OutLine_V2 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
 |  | M_Outline | M | Surface |  | 2025-12-13 | 2026-01-05 | 1 | MI: MI_Outline |
 |  | M_Potion | M | Surface |  | 2025-12-30 | 2026-01-05 | 1 | MI: MI_Posion |
-|  | M_Rader_Chart | M | UI |  | 2024-12-21 | 2024-12-21 | 1 | MI: MI_Rader_Chart |
-|  | M_Rader_Chart_BG | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
-|  | M_Rader_Chart_Core | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
-|  | M_UI_Battery1 | M | UI |  | 2026-04-13 | 2026-04-16 | 0 |  |
+| UI_Status | M_Rader_Chart | M | UI |  | 2024-12-21 | 2024-12-21 | 1 | MI: MI_Rader_Chart |
+| UI_Status | M_Rader_Chart_BG | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
+| UI_Status | M_Rader_Chart_Core | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
+| UI_Status | M_UI_Battery1 | M | UI |  | 2026-04-13 | 2026-04-16 | 0 |  |
 |  | M_UI_ZZZ_HP_Gauge | M | Surface |  | 2024-07-13 | 2026-07-05 | 1 | MI: MI_UI_ZZZ_HP_Gauge |
 
 ## Materials/Ui/LoadingBoxes

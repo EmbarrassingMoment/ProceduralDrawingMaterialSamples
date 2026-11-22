@@ -45,8 +45,11 @@
 | --- | --- |
 | `Showcase_Shape` | 図形、SDF の図形、アイコン、季節のモチーフ 27 件 |
 | `Showcase_Seasons` | 春・秋・冬に分けた季節のモチーフ 7 件 |
+| `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
+| `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 3 件とインスタンス 1 件)とバッテリーゲージ |
+| `Showcase_UI_Graphic` | UI 用のレモンの輪切りのイラストとワープの背景 |
 | `Showcase` | 初代のレベル。全マテリアルの約半数を配置 |
 
 ### Showcase_Shape
@@ -56,6 +59,12 @@
 ### Showcase_Seasons
 
 ![Showcase_Seasons](docs/images/Showcase_Seasons.jpg)
+
+### Showcase_Animation
+
+どれも時間でループするので、下の画像はある一瞬のものです。
+
+![Showcase_Animation](docs/images/Showcase_Animation.jpg)
 
 ### Showcase_PostProcess
 
@@ -68,6 +77,18 @@
 アイコンはウィジェット(`Content/Widgets/WBP_Showcase_UI_LoadingIcon`)に並べてあり、実行時に画面へ追加されます。表示するには Play(PIE)を押してください。
 
 ![Showcase_UI_LoadingIcon](docs/images/Showcase_UI_LoadingIcon.png)
+
+### Showcase_UI_Status
+
+レーダーチャートは 2 層でできています。`M_Rader_Chart_BG` が目盛り、`M_Rader_Chart_Core` が値の多角形を描き、`M_Rader_Chart` はその 2 つを重ねたもの、`MI_Rader_Chart` は値を変えたインスタンスです。ローディングアイコンと同じく、Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Status`)が表示されます。
+
+![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
+
+### Showcase_UI_Graphic
+
+Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic`)が表示されます。
+
+![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
 
 ## マテリアル一覧
 
