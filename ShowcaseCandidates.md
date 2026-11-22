@@ -110,9 +110,9 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_Swirl_Transition | M | Surface |  | 2025-11-09 | 2026-01-05 | 2 | MI: MI_Swirl_Transition, MI_Swirl_Transition_V2 |
 |  | M_Triangle | M | Surface |  | 2025-12-20 | 2026-08-23 | 0 |  |
 |  | M_Triangle1 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
-|  | M_Triangle_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
-|  | M_Triangle_Animation_2 | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Triangle_Animation_3 | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
+|  | M_Triangle_Animation | M | Surface |  | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
+|  | M_Triangle_Animation_2 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+|  | M_Triangle_Animation_3 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
 |  | M_Tunnel | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
 |  | M_TunnelV2 | M | Surface |  | 2026-07-20 | 2026-08-03 | 0 |  |
 
