@@ -2,14 +2,14 @@
 
 Content 以下の Material / PostProcess マテリアルの全一覧。ジャンル別 Showcase レベルに載せるものを選ぶための作業用チェックリスト。
 
-- 対象: 177 件(M_ 136 / PP 41)
+- 対象: 178 件(M_ 137 / PP 41)
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
-  - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
+  - UI_Status: 5 件(`Tools/BuildShowcaseUI_Status.py`)
   - UI_Graphic: 2 件(`Tools/BuildShowcaseUI_Graphic.py`)
 - `旧` 列は初代 Showcase.umap に配置済みのもの
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
@@ -339,3 +339,9 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
 |  | M_BreakGlassTransition | M | PostProcess |  | 2026-07-05 | 2026-07-05 | 1 | MI: MI_BreakGlassTransition |
+
+## Materials/Ui/RadarChart
+
+| 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
+|:--:|---|:--:|:--:|:--:|---|---|:--:|---|
+| UI_Status | M_RadarChart | M | UI |  | 2026-11-22 | 2026-11-22 | 1 | MI: MI_RadarChart |

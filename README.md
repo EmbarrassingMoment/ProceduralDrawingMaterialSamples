@@ -48,7 +48,7 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
-| `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
+| `Showcase_UI_Status` | UI radar charts (4 materials and 2 instances) and a battery gauge |
 | `Showcase_UI_Graphic` | A UI lemon slice illustration and a warp background |
 | `Showcase` | The original level, with about half of all the materials |
 
@@ -82,6 +82,8 @@ The icons are placed in a widget (`Content/Widgets/WBP_Showcase_UI_LoadingIcon`)
 
 The radar chart is made of two layers: `M_Rader_Chart_BG` draws the scale and `M_Rader_Chart_Core` draws the values. `M_Rader_Chart` combines them, and `MI_Rader_Chart` sets different values. As with the loading icons, press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Status`).
 
+The second row, `Materials/Ui/RadarChart/M_RadarChart`, is a redesign of it in thin lines. It draws the scale and the values in one material, and takes the six axis values as `Value1` to `Value6` (0 to 1: 0 is the centre, 1 the outline). Lines and fill edges are antialiased, the fill is translucent and the background is transparent. It uses no Custom node, only standard nodes and the five material functions in the same folder. `MI_RadarChart` sets different values. To animate a change, interpolate the values in your widget and pass them every frame; the material only draws the values it is given.
+
 ![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
 
 ### Showcase_UI_Graphic
@@ -92,7 +94,7 @@ Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
 
 ## Material Catalog
 
-The project has 177 materials, 91 material functions, and 85 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
+The project has 178 materials, 96 material functions, and 86 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
 
 | Category | Examples | Materials |
 | --- | --- | ---: |
@@ -103,7 +105,7 @@ The project has 177 materials, 91 material functions, and 85 material instances.
 | Dissolve & Fade | rectangle, triangle and hex dissolves, dot and hex fades | 22 |
 | Transitions | burn, flip, page curl, ripple, warp, zoom blur | 12 |
 | Post Process | VHS, old TV, glitch, night vision, halftone, sumi-e, speed lines, damage vignette, screen transitions | 43 |
-| UI | loading icons, gauges, radar chart, 7- and 14-segment displays, potion, outline | 21 |
+| UI | loading icons, gauges, radar chart, 7- and 14-segment displays, potion, outline | 22 |
 | Work in Progress | unfinished materials | 1 |
 
 ## Reusable Material Functions

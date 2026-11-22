@@ -48,7 +48,7 @@
 | `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
-| `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 3 件とインスタンス 1 件)とバッテリーゲージ |
+| `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 4 件とインスタンス 2 件)とバッテリーゲージ |
 | `Showcase_UI_Graphic` | UI 用のレモンの輪切りのイラストとワープの背景 |
 | `Showcase` | 初代のレベル。全マテリアルの約半数を配置 |
 
@@ -82,6 +82,8 @@
 
 レーダーチャートは 2 層でできています。`M_Rader_Chart_BG` が目盛り、`M_Rader_Chart_Core` が値の多角形を描き、`M_Rader_Chart` はその 2 つを重ねたもの、`MI_Rader_Chart` は値を変えたインスタンスです。ローディングアイコンと同じく、Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Status`)が表示されます。
 
+2 段目の `Materials/Ui/RadarChart/M_RadarChart` は、これを作り直した線主体の版です。目盛りと値の多角形を 1 枚で描き、6 軸の値を `Value1`〜`Value6`(0〜1、0 が中心、1 が外周)で渡します。線と塗りの縁は滑らかで、塗りは半透明、背景は透過です。Custom ノードは使わず、標準ノードと同じフォルダの 5 つのマテリアル関数だけで組んでいます。`MI_RadarChart` は値を変えたインスタンスです。値の変化をアニメーションさせるときは、ウィジェット側で補間した値を毎フレーム渡してください(マテリアルは渡された値をそのまま描くだけです)。
+
 ![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
 
 ### Showcase_UI_Graphic
@@ -92,7 +94,7 @@ Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic
 
 ## マテリアル一覧
 
-マテリアル 177 件、マテリアル関数 91 件、マテリアルインスタンス 85 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
+マテリアル 178 件、マテリアル関数 96 件、マテリアルインスタンス 86 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
 
 | カテゴリ | 例 | 件数 |
 | --- | --- | ---: |
@@ -103,7 +105,7 @@ Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic
 | Dissolve & Fade | 矩形・三角形・六角形のディゾルブ、ドット・六角形のフェード | 22 |
 | Transitions | 燃焼、フリップ、ページめくり、波紋、ワープ、ズームブラー | 12 |
 | Post Process | VHS、古いテレビ、グリッチ、暗視、ハーフトーン、墨絵、集中線、被ダメージのビネット、画面トランジション | 43 |
-| UI | ローディングアイコン、ゲージ、レーダーチャート、7セグ・14セグ表示、ポーション、アウトライン | 21 |
+| UI | ローディングアイコン、ゲージ、レーダーチャート、7セグ・14セグ表示、ポーション、アウトライン | 22 |
 | Work in Progress | 制作途中のもの | 1 |
 
 ## 再利用できるマテリアル関数
