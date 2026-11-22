@@ -8,6 +8,8 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
+  - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
+  - UI_Graphic: 2 件(`Tools/BuildShowcaseUI_Graphic.py`)
 - `旧` 列は初代 Showcase.umap に配置済みのもの
 - `MI` 列はそのマテリアルを親にする Material Instance の数。バリエーション展示の目安
 - `追加` / `更新` は git 履歴上の日付。`⚠重複` は同名アセットが別フォルダにもあるもの
@@ -261,7 +263,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_Sci-fi_Ring | M | Surface | ✓ | 2023-08-20 | 2023-08-20 | 1 | MI: MI_Sci-fi_Ring |
 |  | M_Sci-fi_Tunnel | M | Surface |  | 2023-08-20 | 2023-08-20 | 1 | MI: MI_Sci-fi_Tunnel |
 |  | M_Warp_Effect | M | Surface | ✓ | 2023-08-20 | 2023-08-20 | 1 | ⚠重複 / MI: MI_Warp_Effect |
-|  | M_Warp_Effect_UI | M | UI |  | 2026-05-18 | 2026-05-18 | 0 |  |
+| UI_Graphic | M_Warp_Effect_UI | M | UI |  | 2026-05-18 | 2026-05-18 | 0 |  |
 |  | PP_Hex_Transition | PP | PostProcess |  | 2026-01-15 | 2026-05-18 | 1 | ⚠重複 / MI: PPI_Hex_Transition |
 
 ## Materials/Warp
@@ -288,7 +290,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_2DLemon | M | UI |  | 2026-08-06 | 2026-08-23 | 0 |  |
+| UI_Graphic | M_2DLemon | M | UI |  | 2026-08-06 | 2026-08-23 | 0 |  |
 |  | M_2D_Liquid | M | Surface | ✓ | 2024-07-13 | 2024-07-13 | 0 |  |
 |  | M_7Seg | M | Surface | ✓ | 2026-01-05 | 2026-08-23 | 1 | MI: MI_7Seg |
 |  | M_Checker | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Checker |
@@ -301,10 +303,10 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 |  | M_OutLine_V2 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
 |  | M_Outline | M | Surface |  | 2025-12-13 | 2026-01-05 | 1 | MI: MI_Outline |
 |  | M_Potion | M | Surface |  | 2025-12-30 | 2026-01-05 | 1 | MI: MI_Posion |
-|  | M_Rader_Chart | M | UI |  | 2024-12-21 | 2024-12-21 | 1 | MI: MI_Rader_Chart |
-|  | M_Rader_Chart_BG | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
-|  | M_Rader_Chart_Core | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
-|  | M_UI_Battery1 | M | UI |  | 2026-04-13 | 2026-04-16 | 0 |  |
+| UI_Status | M_Rader_Chart | M | UI |  | 2024-12-21 | 2024-12-21 | 1 | MI: MI_Rader_Chart |
+| UI_Status | M_Rader_Chart_BG | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
+| UI_Status | M_Rader_Chart_Core | M | UI |  | 2024-12-21 | 2024-12-21 | 0 |  |
+| UI_Status | M_UI_Battery1 | M | UI |  | 2026-04-13 | 2026-04-16 | 0 |  |
 |  | M_UI_ZZZ_HP_Gauge | M | Surface |  | 2024-07-13 | 2026-07-05 | 1 | MI: MI_UI_ZZZ_HP_Gauge |
 
 ## Materials/Ui/LoadingBoxes

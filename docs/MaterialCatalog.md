@@ -122,7 +122,7 @@ How to read the tables:
 | M_Warp_Effect | Materials/SF | Surface |  | 1 |
 | M_Warp_Effect2 | Materials/Warp | Surface |  |  |
 | M_Warp_Effect3 | Materials/Warp | Surface |  |  |
-| M_Warp_Effect_UI | Materials/SF | UI |  |  |
+| M_Warp_Effect_UI | Materials/SF | UI | UI_Graphic |  |
 
 ## Dissolve & Fade
 
@@ -222,7 +222,7 @@ How to read the tables:
 |---|---|:--:|:--:|:--:|
 | M_14Seg | Export | Surface |  |  |
 | M_2D_Liquid | Materials/Ui | Surface |  |  |
-| M_2DLemon | Materials/Ui | UI |  |  |
+| M_2DLemon | Materials/Ui | UI | UI_Graphic |  |
 | M_7Seg | Materials/Ui | Surface |  | 1 |
 | M_Checker | Materials/Ui | Surface |  | 1 |
 | M_Checker2 | Materials/Ui | Surface |  | 1 |
@@ -236,10 +236,10 @@ How to read the tables:
 | M_Outline | Materials/Ui | Surface |  | 1 |
 | M_OutLine_V2 | Materials/Ui | Surface |  |  |
 | M_Potion | Materials/Ui | Surface |  | 1 |
-| M_Rader_Chart | Materials/Ui | UI |  | 1 |
-| M_Rader_Chart_BG | Materials/Ui | UI |  |  |
-| M_Rader_Chart_Core | Materials/Ui | UI |  |  |
-| M_UI_Battery1 | Materials/Ui | UI |  |  |
+| M_Rader_Chart | Materials/Ui | UI | UI_Status | 1 |
+| M_Rader_Chart_BG | Materials/Ui | UI | UI_Status |  |
+| M_Rader_Chart_Core | Materials/Ui | UI | UI_Status |  |
+| M_UI_Battery1 | Materials/Ui | UI | UI_Status |  |
 | M_UI_ZZZ_HP_Gauge | Materials/Ui | Surface |  | 1 |
 
 ## Work in Progress

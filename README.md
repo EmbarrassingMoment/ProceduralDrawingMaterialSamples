@@ -47,6 +47,8 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
+| `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
+| `Showcase_UI_Graphic` | A UI lemon slice illustration and a warp background |
 | `Showcase` | The original level, with about half of all the materials |
 
 ### Showcase_Shape
@@ -68,6 +70,18 @@ Each booth has its own bounded Post Process Volume, so an effect applies only wh
 The icons are placed in a widget (`Content/Widgets/WBP_Showcase_UI_LoadingIcon`) that is added to the screen at runtime. Press Play (PIE) to see them.
 
 ![Showcase_UI_LoadingIcon](docs/images/Showcase_UI_LoadingIcon.png)
+
+### Showcase_UI_Status
+
+The radar chart is made of two layers: `M_Rader_Chart_BG` draws the scale and `M_Rader_Chart_Core` draws the values. `M_Rader_Chart` combines them, and `MI_Rader_Chart` sets different values. As with the loading icons, press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Status`).
+
+![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
+
+### Showcase_UI_Graphic
+
+Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
+
+![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
 
 ## Material Catalog
 

@@ -48,6 +48,8 @@ SHOWCASE_LEVELS = [
     ("PostProcess", CONTENT / "Levels/Showcase_PostProcess.umap", "PostProcess"),
     # UI はウィジェットに並べて画面に重ねる。マテリアルを参照するのはレベルではなくウィジェット
     ("UI_LoadingIcon", CONTENT / "Widgets/WBP_Showcase_UI_LoadingIcon.uasset", "UI"),
+    ("UI_Status", CONTENT / "Widgets/WBP_Showcase_UI_Status.uasset", "UI"),
+    ("UI_Graphic", CONTENT / "Widgets/WBP_Showcase_UI_Graphic.uasset", "UI"),
 ]
 LEGACY_LEVEL = CONTENT / "Levels/Showcase.umap"
 
