@@ -41,6 +41,7 @@ MI_PP_VortexDrainTransition,PostProcess
 MI_Polygon,Surface
 MI_Polygon_AA,Surface
 MI_Posion,Surface
+MI_RadarChart,UI
 MI_Rader_Chart,UI
 MI_Rect_Transtition,Surface
 MI_Rectangle,Surface
@@ -138,6 +139,7 @@ M_Polygon_AA,Surface
 M_Potion,Surface
 M_Pulse,Surface
 M_Pulse_Animation,Surface
+M_RadarChart,UI
 M_Radar_Icon,Surface
 M_Rader_Chart,UI
 M_Rader_Chart_BG,UI

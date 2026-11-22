@@ -41,10 +41,15 @@ UI = "/Game/Materials/Ui"
 #   Radar Chart: M_Rader_Chart は目盛り (_BG) と値の多角形 (_Core) を重ねたもの。部品も並べて
 #                見比べられるようにする。既定値は全項目 0.5 で正六角形になるので、値を変えた
 #                MI_Rader_Chart も並べる
+#   Radar Chart (Minimal): 上を作り直した M_RadarChart (Custom ノードなし、各軸の値は Value1〜6 の 0〜1、
+#                背景は透過)。既定値は全項目 0.5、MI_RadarChart は見本の値
 #   Gauge: M_UI_Battery1 は時間で残量が減っていく
 GROUPS = [
     ("Radar Chart", UI, [
         "M_Rader_Chart", "M_Rader_Chart_BG", "M_Rader_Chart_Core", "MI_Rader_Chart",
+    ]),
+    ("Radar Chart (Minimal)", UI + "/RadarChart", [
+        "M_RadarChart", "MI_RadarChart",
     ]),
     ("Gauge", UI, [
         "M_UI_Battery1",
