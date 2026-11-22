@@ -6,6 +6,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
+  - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
   - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
@@ -94,27 +95,27 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_ECG | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_ECG |
-|  | M_Glitch | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Pulse | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Pulse_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rainbow_Sample | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rainbow_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Rect_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Rect_Transtition | M | Surface |  | 2025-08-16 | 2026-01-05 | 1 | MI: MI_Rect_Transtition |
-|  | M_Simple_Wave | M | Surface |  | 2024-07-12 | 2026-01-05 | 0 |  |
-|  | M_Sine_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_SpeedLine | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_SpeedLine |
-|  | M_Spiral | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Spiral |
-|  | M_Star_Trail | M | Surface | ✓ | 2026-01-05 | 2026-01-08 | 0 |  |
-|  | M_Swirl_Transition | M | Surface |  | 2025-11-09 | 2026-01-05 | 2 | MI: MI_Swirl_Transition, MI_Swirl_Transition_V2 |
-|  | M_Triangle | M | Surface |  | 2025-12-20 | 2026-08-23 | 0 |  |
-|  | M_Triangle1 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
-|  | M_Triangle_Animation | M | Surface |  | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
-|  | M_Triangle_Animation_2 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Triangle_Animation_3 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_ECG | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_ECG |
+| Animation | M_Glitch | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Pulse | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Pulse_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rainbow_Sample | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rainbow_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_Rect_Animation | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Rect_Transtition | M | Surface |  | 2025-08-16 | 2026-01-05 | 1 | MI: MI_Rect_Transtition |
+| Animation | M_Simple_Wave | M | Surface |  | 2024-07-12 | 2026-01-05 | 0 |  |
+| Animation | M_Sine_Wave | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Animation | M_SpeedLine | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_SpeedLine |
+| Animation | M_Spiral | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 1 | MI: MI_Spiral |
+| Animation | M_Star_Trail | M | Surface | ✓ | 2026-01-05 | 2026-01-08 | 0 |  |
+| Animation | M_Swirl_Transition | M | Surface |  | 2025-11-09 | 2026-01-05 | 2 | MI: MI_Swirl_Transition, MI_Swirl_Transition_V2 |
+| Animation | M_Triangle | M | Surface |  | 2025-12-20 | 2026-08-23 | 0 |  |
+| Animation | M_Triangle1 | M | Surface |  | 2025-12-20 | 2026-01-05 | 0 |  |
+| Animation | M_Triangle_Animation | M | Surface |  | 2024-03-24 | 2024-03-24 | 1 | MI: MI_Triangle_Animation |
+| Animation | M_Triangle_Animation_2 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
+| Animation | M_Triangle_Animation_3 | M | Surface | ✓ | 2024-03-24 | 2024-03-24 | 0 |  |
 |  | M_Tunnel | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_TunnelV2 | M | Surface |  | 2026-07-20 | 2026-08-03 | 0 |  |
+| Animation | M_TunnelV2 | M | Surface |  | 2026-07-20 | 2026-08-03 | 0 |  |
 
 ## Materials/Hex
 
