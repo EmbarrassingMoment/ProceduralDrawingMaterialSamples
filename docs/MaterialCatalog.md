@@ -84,10 +84,10 @@ How to read the tables:
 | Name | Folder | Domain | Showcase | Instances |
 |---|---|:--:|:--:|:--:|
 | M_Caustic | Materials/Caustics | Surface |  | 1 |
-| M_ECG | Materials/Animation | Surface |  | 1 |
+| M_ECG | Materials/Animation | Surface | Animation | 1 |
 | M_Flare | Materials/Flare | Surface |  |  |
 | M_Flare_V2 | Materials/Flare | Surface |  |  |
-| M_Glitch | Materials/Animation | Surface |  |  |
+| M_Glitch | Materials/Animation | Surface | Animation |  |
 | M_Hex_Animation | Materials/Hex | Surface |  |  |
 | M_Hex_Animation_V3 | Materials/Hex | Surface |  |  |
 | M_Hex_Animation_V4 | Materials/Hex | Surface |  |  |
@@ -96,28 +96,28 @@ How to read the tables:
 | M_Hex_V2 | Materials/Hex | Surface |  | 1 |
 | M_HexTiling | Materials/Hex | Surface |  | 1 |
 | M_HexTiling_V3 | Materials/Hex | Surface |  | 1 |
-| M_Pulse | Materials/Animation | Surface |  |  |
-| M_Pulse_Animation | Materials/Animation | Surface |  |  |
-| M_Rainbow_Sample | Materials/Animation | Surface |  |  |
-| M_Rainbow_Wave | Materials/Animation | Surface |  |  |
-| M_Rect_Animation | Materials/Animation | Surface |  |  |
-| M_Rect_Transtition | Materials/Animation | Surface |  | 1 |
+| M_Pulse | Materials/Animation | Surface | Animation |  |
+| M_Pulse_Animation | Materials/Animation | Surface | Animation |  |
+| M_Rainbow_Sample | Materials/Animation | Surface | Animation |  |
+| M_Rainbow_Wave | Materials/Animation | Surface | Animation |  |
+| M_Rect_Animation | Materials/Animation | Surface | Animation |  |
+| M_Rect_Transtition | Materials/Animation | Surface | Animation | 1 |
 | M_Sci-fi_Circle | Materials/SF | Surface |  | 1 |
 | M_Sci-fi_Ring | Materials/SF | Surface |  | 1 |
 | M_Sci-fi_Tunnel | Materials/SF | Surface |  | 1 |
-| M_Simple_Wave | Materials/Animation | Surface |  |  |
-| M_Sine_Wave | Materials/Animation | Surface |  |  |
-| M_SpeedLine | Materials/Animation | Surface |  | 1 |
-| M_Spiral | Materials/Animation | Surface |  | 1 |
-| M_Star_Trail | Materials/Animation | Surface |  |  |
-| M_Swirl_Transition | Materials/Animation | Surface |  | 2 |
-| M_Triangle | Materials/Animation | Surface |  |  |
-| M_Triangle1 | Materials/Animation | Surface |  |  |
-| M_Triangle_Animation | Materials/Animation | Surface |  | 1 |
-| M_Triangle_Animation_2 | Materials/Animation | Surface |  |  |
-| M_Triangle_Animation_3 | Materials/Animation | Surface |  |  |
+| M_Simple_Wave | Materials/Animation | Surface | Animation |  |
+| M_Sine_Wave | Materials/Animation | Surface | Animation |  |
+| M_SpeedLine | Materials/Animation | Surface | Animation | 1 |
+| M_Spiral | Materials/Animation | Surface | Animation | 1 |
+| M_Star_Trail | Materials/Animation | Surface | Animation |  |
+| M_Swirl_Transition | Materials/Animation | Surface | Animation | 2 |
+| M_Triangle | Materials/Animation | Surface | Animation |  |
+| M_Triangle1 | Materials/Animation | Surface | Animation |  |
+| M_Triangle_Animation | Materials/Animation | Surface | Animation | 1 |
+| M_Triangle_Animation_2 | Materials/Animation | Surface | Animation |  |
+| M_Triangle_Animation_3 | Materials/Animation | Surface | Animation |  |
 | M_Tunnel | Materials/Animation | Surface |  |  |
-| M_TunnelV2 | Materials/Animation | Surface |  |  |
+| M_TunnelV2 | Materials/Animation | Surface | Animation |  |
 | M_Warp_Effect | Materials | Surface |  | 1 |
 | M_Warp_Effect | Materials/SF | Surface |  | 1 |
 | M_Warp_Effect2 | Materials/Warp | Surface |  |  |
