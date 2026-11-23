@@ -46,6 +46,7 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Shape` | 27 shapes, SDF shapes, icons, and seasonal motifs |
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
 | `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
+| `Showcase_Transition` | 11 screen transitions: wipes and distortions |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
 | `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
@@ -65,6 +66,12 @@ Open these levels from `Content/Levels` to see the materials side by side.
 Every material here loops over time, so the image below is a single moment.
 
 ![Showcase_Animation](docs/images/Showcase_Animation.jpg)
+
+### Showcase_Transition
+
+Each transition loops between two images, so the image below is a single moment. Wipes move a shaped edge (fire, a page curl, halftone dots) across the surface; distortions ripple, warp, or blur one image into the other.
+
+![Showcase_Transition](docs/images/Showcase_Transition.jpg)
 
 ### Showcase_PostProcess
 

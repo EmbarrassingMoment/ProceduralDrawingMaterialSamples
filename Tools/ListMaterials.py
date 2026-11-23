@@ -46,6 +46,7 @@ SHOWCASE_LEVELS = [
     ("Shape", CONTENT / "Levels/Showcase_Shape.umap", None),
     ("Seasons", CONTENT / "Levels/Showcase_Seasons.umap", None),
     ("Animation", CONTENT / "Levels/Showcase_Animation.umap", None),
+    ("Transition", CONTENT / "Levels/Showcase_Transition.umap", None),
     # 小道具として図形のマテリアルも置いているので、PostProcess ドメインのものだけ数える
     ("PostProcess", CONTENT / "Levels/Showcase_PostProcess.umap", "PostProcess"),
     # UI はウィジェットに並べて画面に重ねる。マテリアルを参照するのはレベルではなくウィジェット

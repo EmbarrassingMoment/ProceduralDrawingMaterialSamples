@@ -7,6 +7,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
+  - Transition: 11 件(`Tools/BuildShowcaseTransition.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
   - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
@@ -181,23 +182,23 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Burn_Transition | M | Surface |  | 2025-04-19 | 2025-07-11 | 0 |  |
-|  | M_Flip_Transition | M | Surface | ✓ | 2024-06-29 | 2024-06-29 | 0 |  |
+| Transition | M_Burn_Transition | M | Surface |  | 2025-04-19 | 2025-07-11 | 0 |  |
+| Transition | M_Flip_Transition | M | Surface | ✓ | 2024-06-29 | 2024-06-29 | 0 |  |
 |  | M_HalfTone_V2 | M | Surface |  | 2025-03-15 | 2026-01-05 | 0 |  |
-|  | M_Halftone_Transition_V2 | M | Surface |  | 2023-01-15 | 2026-01-05 | 1 | MI: MI_Halftone_Transition |
-|  | M_Page_Curl | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
-|  | M_Rectangle_Transition | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
-|  | M_Transition_Ripple | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
-|  | M_Transition_V6 | M | Surface | ✓ | 2024-02-25 | 2026-01-20 | 0 |  |
-|  | M_Transition_Warp | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
-|  | M_Transition_Wave | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
-|  | M_Zoom_Blur_Transition | M | Surface | ✓ | 2025-07-11 | 2025-07-11 | 0 |  |
+| Transition | M_Halftone_Transition_V2 | M | Surface |  | 2023-01-15 | 2026-01-05 | 1 | MI: MI_Halftone_Transition |
+| Transition | M_Page_Curl | M | Surface | ✓ | 2026-01-05 | 2026-01-05 | 0 |  |
+| Transition | M_Rectangle_Transition | M | Surface |  | 2024-03-24 | 2024-03-24 | 0 |  |
+| Transition | M_Transition_Ripple | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
+| Transition | M_Transition_V6 | M | Surface | ✓ | 2024-02-25 | 2026-01-20 | 0 |  |
+| Transition | M_Transition_Warp | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
+| Transition | M_Transition_Wave | M | Surface | ✓ | 2024-02-25 | 2024-02-25 | 0 |  |
+| Transition | M_Zoom_Blur_Transition | M | Surface | ✓ | 2025-07-11 | 2025-07-11 | 0 |  |
 
 ## Materials/Transition/Transition_Export
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Transition_Distortion | M | Surface |  | 2024-02-25 | 2024-02-25 | 0 |  |
+| Transition | M_Transition_Distortion | M | Surface |  | 2024-02-25 | 2024-02-25 | 0 |  |
 
 ## Materials/PostProcess
 
