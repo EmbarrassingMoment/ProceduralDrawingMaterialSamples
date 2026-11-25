@@ -33,6 +33,7 @@ FOLDER_ORDER = [
     "Materials/Bonus", "Materials/Bonus/Other", "Materials/Bonus/Dissolve",
     "Materials/Bonus/Fade/Dot", "Materials/Bonus/Fade/Hex",
     "Materials/Transition", "Materials/Transition/Transition_Export",
+    "Materials/Transitions/FlipTransition",
     "Materials/PostProcess", "Materials/PostProcess/MaterialFunctions/VHS",
     "Materials", "Materials/SF", "Materials/Warp", "Materials/Flare",
     "Materials/Caustics", "Materials/SumiE", "Materials/Ui",
@@ -72,7 +73,7 @@ CATALOG_CATEGORIES = [
     ("Dissolve & Fade", "rectangle, triangle and hex dissolves, dot and hex fades",
      ["Materials/Bonus"]),
     ("Transitions", "burn, flip, page curl, ripple, warp, zoom blur",
-     ["Materials/Transition"]),
+     ["Materials/Transition", "Materials/Transitions"]),
     ("Post Process", "VHS, old TV, glitch, night vision, halftone, sumi-e, speed lines, "
      "damage vignette, screen transitions",
      ["Materials/PostProcess"]),

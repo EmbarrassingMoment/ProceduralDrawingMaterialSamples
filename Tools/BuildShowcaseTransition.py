@@ -24,9 +24,14 @@ import showcase_builder as sb
 LEVEL_PATH = "/Game/Levels/Showcase_Transition"
 OUTLINER_FOLDER = "Showcase_Transition"
 TRANS = "/Game/Materials/Transition"
+# M_Flip_Transition の不具合を直した版。フォルダが Transition ではないので /Game/ からのパスで渡す
+FLIP_FIXED = "/Game/Materials/Transitions/FlipTransition/M_FlipTransition"
 
 # 行ごとの (グループ名, 既定フォルダ, [マテリアル名...])
 # どれも時間でループし、2 枚のテクスチャ (または色) を行き来する。元のマテリアルを既定値のまま並べる。
+#   M_Flip_Transition の隣には、パラメータと既定値をそのままに不具合を直した M_FlipTransition を置く
+#   (元はタイルがめくれず帯で切り抜かれ、線幅が段の境目で跳び、タイルの縦の大きさが 1/TilingX で、
+#   めくり中の隙間が常に黒だった)
 #   入れないもの:
 #     M_HalfTone_V2          ... 時間で動かず、既定値 (Control=3) では全面が黒のまま。
 #                                見せるには Control を変えたインスタンスが要る
@@ -36,7 +41,7 @@ ROWS = [
     [
         # 燃える・めくれる・網点・四角など、形で境目が動いて切り替わるもの
         ("Wipe", TRANS, [
-            "M_Burn_Transition", "M_Flip_Transition", "M_Halftone_Transition_V2",
+            "M_Burn_Transition", "M_Flip_Transition", FLIP_FIXED, "M_Halftone_Transition_V2",
             "M_Page_Curl", "M_Rectangle_Transition",
         ]),
     ],
