@@ -205,7 +205,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-| Transition | M_FlipTransition | M | Surface |  |  |  | 0 |  |
+| Transition | M_FlipTransition | M | Surface |  | 2026-11-23 | 2026-11-23 | 0 |  |
 
 ## Materials/PostProcess
 
