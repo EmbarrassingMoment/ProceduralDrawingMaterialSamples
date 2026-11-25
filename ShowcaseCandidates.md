@@ -8,6 +8,7 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
   - Transition: 11 件(`Tools/BuildShowcaseTransition.py`)
+  - Dissolve: 20 件(`Tools/BuildShowcaseDissolve.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
   - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
@@ -141,42 +142,42 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Hex_Learning | M | Surface | ✓ | 2022-11-07 | 2022-12-25 | 0 |  |
-|  | M_Triangle_Motion | M | Surface | ✓ | 2022-12-11 | 2022-12-25 | 0 |  |
+| Dissolve | M_Hex_Learning | M | Surface | ✓ | 2022-11-07 | 2022-12-25 | 0 |  |
+| Dissolve | M_Triangle_Motion | M | Surface | ✓ | 2022-12-11 | 2022-12-25 | 0 |  |
 
 ## Materials/Bonus/Dissolve
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Hex_Tiling_Dissolve | M | Surface | ✓ | 2022-09-16 | 2022-12-25 | 1 | MI: MI_Hex_Tiling_Dissolve |
-|  | M_Rect_Dissolve | M | Surface | ✓ | 2022-10-24 | 2023-08-13 | 0 |  |
-|  | M_Rect_Dissolve_V2 | M | Surface | ✓ | 2022-10-31 | 2026-06-11 | 0 |  |
-|  | M_Rect_Dissolve_V3 | M | Surface | ✓ | 2022-11-26 | 2022-12-25 | 0 |  |
+| Dissolve | M_Hex_Tiling_Dissolve | M | Surface | ✓ | 2022-09-16 | 2022-12-25 | 1 | MI: MI_Hex_Tiling_Dissolve |
+| Dissolve | M_Rect_Dissolve | M | Surface | ✓ | 2022-10-24 | 2023-08-13 | 0 |  |
+| Dissolve | M_Rect_Dissolve_V2 | M | Surface | ✓ | 2022-10-31 | 2026-06-11 | 0 |  |
+| Dissolve | M_Rect_Dissolve_V3 | M | Surface | ✓ | 2022-11-26 | 2022-12-25 | 0 |  |
 |  | M_Rect_Dissolve_V4 | M | Surface |  | 2026-06-11 | 2026-06-13 | 0 |  |
-|  | M_Rect_Dissolve_V5 | M | Surface |  | 2026-06-12 | 2026-06-13 | 0 |  |
-|  | M_Rect_Dissolve_V6 | M | Surface |  | 2026-06-13 | 2026-06-13 | 0 |  |
-|  | M_Soft_Rectangle_Dissolve | M | Surface | ✓ | 2022-11-13 | 2022-12-25 | 0 |  |
-|  | M_Transition_Square | M | Surface | ✓ | 2022-09-24 | 2025-03-15 | 1 | MI: MI_Transition_Square |
-|  | M_Triangle_Dissolve_V2 | M | Surface | ✓ | 2022-11-20 | 2025-03-15 | 0 |  |
-|  | M_Triangle_Dissolve_V3 | M | Surface | ✓ | 2022-12-03 | 2023-09-10 | 0 |  |
-|  | M_Triangle_Tilling_Dissolve | M | Surface | ✓ | 2022-09-10 | 2022-12-25 | 1 | MI: MI_Triangle_Tilling_Dissolve |
+| Dissolve | M_Rect_Dissolve_V5 | M | Surface |  | 2026-06-12 | 2026-06-13 | 0 |  |
+| Dissolve | M_Rect_Dissolve_V6 | M | Surface |  | 2026-06-13 | 2026-06-13 | 0 |  |
+| Dissolve | M_Soft_Rectangle_Dissolve | M | Surface | ✓ | 2022-11-13 | 2022-12-25 | 0 |  |
+| Dissolve | M_Transition_Square | M | Surface | ✓ | 2022-09-24 | 2025-03-15 | 1 | MI: MI_Transition_Square |
+| Dissolve | M_Triangle_Dissolve_V2 | M | Surface | ✓ | 2022-11-20 | 2025-03-15 | 0 |  |
+| Dissolve | M_Triangle_Dissolve_V3 | M | Surface | ✓ | 2022-12-03 | 2023-09-10 | 0 |  |
+| Dissolve | M_Triangle_Tilling_Dissolve | M | Surface | ✓ | 2022-09-10 | 2022-12-25 | 1 | MI: MI_Triangle_Tilling_Dissolve |
 
 ## Materials/Bonus/Fade/Dot
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Dot_Fade | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 1 | MI: MI_Dot_Fade |
+| Dissolve | M_Dot_Fade | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 1 | MI: MI_Dot_Fade |
 
 ## Materials/Bonus/Fade/Hex
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_Hex_Fade1 | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 1 | MI: MI_Hex_Fade |
-|  | M_Hex_Fade2 | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 0 |  |
-|  | M_Hex_Fade_V3 | M | Surface | ✓ | 2022-12-31 | 2023-08-13 | 0 |  |
-|  | M_Hex_Random_Fade | M | Surface |  | 2022-08-19 | 2022-12-25 | 1 | MI: MI_Hex_Random_Fade |
-|  | M_Hex_Random_Noise | M | Surface | ✓ | 2022-10-02 | 2023-08-13 | 1 | MI: MI_Hex_Random_Noise |
-|  | M_Hex_Tiling_Fade_V2 | M | Surface |  | 2022-10-19 | 2022-12-25 | 0 |  |
+| Dissolve | M_Hex_Fade1 | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 1 | MI: MI_Hex_Fade |
+| Dissolve | M_Hex_Fade2 | M | Surface | ✓ | 2022-08-04 | 2022-12-25 | 0 |  |
+| Dissolve | M_Hex_Fade_V3 | M | Surface | ✓ | 2022-12-31 | 2023-08-13 | 0 |  |
+| Dissolve | M_Hex_Random_Fade | M | Surface |  | 2022-08-19 | 2022-12-25 | 1 | MI: MI_Hex_Random_Fade |
+| Dissolve | M_Hex_Random_Noise | M | Surface | ✓ | 2022-10-02 | 2023-08-13 | 1 | MI: MI_Hex_Random_Noise |
+| Dissolve | M_Hex_Tiling_Fade_V2 | M | Surface |  | 2022-10-19 | 2022-12-25 | 0 |  |
 
 ## Materials/Transition
 

@@ -47,6 +47,7 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
 | `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
 | `Showcase_Transition` | 11 screen transitions: wipes and distortions |
+| `Showcase_Dissolve` | 20 dissolves and fades on rectangle, triangle, dot, and hex grids |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
 | `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
@@ -72,6 +73,12 @@ Every material here loops over time, so the image below is a single moment.
 Each transition loops between two images, so the image below is a single moment. Wipes move a shaped edge (fire, a page curl, halftone dots) across the surface; distortions ripple, warp, or blur one image into the other.
 
 ![Showcase_Transition](docs/images/Showcase_Transition.jpg)
+
+### Showcase_Dissolve
+
+Every material here loops over time, so the image below is a single moment. Versions such as `M_Rect_Dissolve` to `M_Rect_Dissolve_V6` are shown side by side when they look different.
+
+![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
 
 ### Showcase_PostProcess
 

@@ -47,6 +47,7 @@
 | `Showcase_Seasons` | 春・秋・冬に分けた季節のモチーフ 7 件 |
 | `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
 | `Showcase_Transition` | 画面の切り替え 11 件(ワイプと歪み) |
+| `Showcase_Dissolve` | 四角・三角・ドット・六角形のマス目で消えるディゾルブとフェード 20 件 |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
 | `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 3 件とインスタンス 1 件)とバッテリーゲージ |
@@ -72,6 +73,12 @@
 どれも 2 枚の画像の間を行き来してループするので、下の画像はある一瞬のものです。ワイプは炎、めくれ、網点などの形をした境目が動いて切り替わり、歪みは画像を波打たせたり、ゆがめたり、ぼかしたりしながら切り替わります。
 
 ![Showcase_Transition](docs/images/Showcase_Transition.jpg)
+
+### Showcase_Dissolve
+
+どれも時間でループするので、下の画像はある一瞬のものです。`M_Rect_Dissolve` から `M_Rect_Dissolve_V6` のような版違いは、見た目が違うものを並べて見比べられるようにしています。
+
+![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
 
 ### Showcase_PostProcess
 

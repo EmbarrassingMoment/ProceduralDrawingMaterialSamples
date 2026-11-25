@@ -128,27 +128,27 @@ How to read the tables:
 
 | Name | Folder | Domain | Showcase | Instances |
 |---|---|:--:|:--:|:--:|
-| M_Dot_Fade | Materials/Bonus/Fade/Dot | Surface |  | 1 |
-| M_Hex_Fade1 | Materials/Bonus/Fade/Hex | Surface |  | 1 |
-| M_Hex_Fade2 | Materials/Bonus/Fade/Hex | Surface |  |  |
-| M_Hex_Fade_V3 | Materials/Bonus/Fade/Hex | Surface |  |  |
-| M_Hex_Learning | Materials/Bonus/Other | Surface |  |  |
-| M_Hex_Random_Fade | Materials/Bonus/Fade/Hex | Surface |  | 1 |
-| M_Hex_Random_Noise | Materials/Bonus/Fade/Hex | Surface |  | 1 |
-| M_Hex_Tiling_Dissolve | Materials/Bonus/Dissolve | Surface |  | 1 |
-| M_Hex_Tiling_Fade_V2 | Materials/Bonus/Fade/Hex | Surface |  |  |
-| M_Rect_Dissolve | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Rect_Dissolve_V2 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Rect_Dissolve_V3 | Materials/Bonus/Dissolve | Surface |  |  |
+| M_Dot_Fade | Materials/Bonus/Fade/Dot | Surface | Dissolve | 1 |
+| M_Hex_Fade1 | Materials/Bonus/Fade/Hex | Surface | Dissolve | 1 |
+| M_Hex_Fade2 | Materials/Bonus/Fade/Hex | Surface | Dissolve |  |
+| M_Hex_Fade_V3 | Materials/Bonus/Fade/Hex | Surface | Dissolve |  |
+| M_Hex_Learning | Materials/Bonus/Other | Surface | Dissolve |  |
+| M_Hex_Random_Fade | Materials/Bonus/Fade/Hex | Surface | Dissolve | 1 |
+| M_Hex_Random_Noise | Materials/Bonus/Fade/Hex | Surface | Dissolve | 1 |
+| M_Hex_Tiling_Dissolve | Materials/Bonus/Dissolve | Surface | Dissolve | 1 |
+| M_Hex_Tiling_Fade_V2 | Materials/Bonus/Fade/Hex | Surface | Dissolve |  |
+| M_Rect_Dissolve | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Rect_Dissolve_V2 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Rect_Dissolve_V3 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
 | M_Rect_Dissolve_V4 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Rect_Dissolve_V5 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Rect_Dissolve_V6 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Soft_Rectangle_Dissolve | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Transition_Square | Materials/Bonus/Dissolve | Surface |  | 1 |
-| M_Triangle_Dissolve_V2 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Triangle_Dissolve_V3 | Materials/Bonus/Dissolve | Surface |  |  |
-| M_Triangle_Motion | Materials/Bonus/Other | Surface |  |  |
-| M_Triangle_Tilling_Dissolve | Materials/Bonus/Dissolve | Surface |  | 1 |
+| M_Rect_Dissolve_V5 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Rect_Dissolve_V6 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Soft_Rectangle_Dissolve | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Transition_Square | Materials/Bonus/Dissolve | Surface | Dissolve | 1 |
+| M_Triangle_Dissolve_V2 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Triangle_Dissolve_V3 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
+| M_Triangle_Motion | Materials/Bonus/Other | Surface | Dissolve |  |
+| M_Triangle_Tilling_Dissolve | Materials/Bonus/Dissolve | Surface | Dissolve | 1 |
 | M_TriangleTiling | Materials/Bonus | Surface |  | 1 |
 
 ## Transitions
