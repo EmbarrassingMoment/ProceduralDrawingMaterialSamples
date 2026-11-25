@@ -155,18 +155,18 @@ How to read the tables:
 
 | Name | Folder | Domain | Showcase | Instances |
 |---|---|:--:|:--:|:--:|
-| M_Burn_Transition | Materials/Transition | Surface |  |  |
-| M_Flip_Transition | Materials/Transition | Surface |  |  |
-| M_Halftone_Transition_V2 | Materials/Transition | Surface |  | 1 |
+| M_Burn_Transition | Materials/Transition | Surface | Transition |  |
+| M_Flip_Transition | Materials/Transition | Surface | Transition |  |
+| M_Halftone_Transition_V2 | Materials/Transition | Surface | Transition | 1 |
 | M_HalfTone_V2 | Materials/Transition | Surface |  |  |
-| M_Page_Curl | Materials/Transition | Surface |  |  |
-| M_Rectangle_Transition | Materials/Transition | Surface |  |  |
-| M_Transition_Distortion | Materials/Transition/Transition_Export | Surface |  |  |
-| M_Transition_Ripple | Materials/Transition | Surface |  |  |
-| M_Transition_V6 | Materials/Transition | Surface |  |  |
-| M_Transition_Warp | Materials/Transition | Surface |  |  |
-| M_Transition_Wave | Materials/Transition | Surface |  |  |
-| M_Zoom_Blur_Transition | Materials/Transition | Surface |  |  |
+| M_Page_Curl | Materials/Transition | Surface | Transition |  |
+| M_Rectangle_Transition | Materials/Transition | Surface | Transition |  |
+| M_Transition_Distortion | Materials/Transition/Transition_Export | Surface | Transition |  |
+| M_Transition_Ripple | Materials/Transition | Surface | Transition |  |
+| M_Transition_V6 | Materials/Transition | Surface | Transition |  |
+| M_Transition_Warp | Materials/Transition | Surface | Transition |  |
+| M_Transition_Wave | Materials/Transition | Surface | Transition |  |
+| M_Zoom_Blur_Transition | Materials/Transition | Surface | Transition |  |
 
 ## Post Process
 
