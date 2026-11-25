@@ -46,7 +46,7 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Shape` | 27 shapes, SDF shapes, icons, and seasonal motifs |
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
 | `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
-| `Showcase_Transition` | 11 screen transitions: wipes and distortions |
+| `Showcase_Transition` | 12 screen transitions: wipes and distortions |
 | `Showcase_Dissolve` | 20 dissolves and fades on rectangle, triangle, dot, and hex grids |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
@@ -70,7 +70,7 @@ Every material here loops over time, so the image below is a single moment.
 
 ### Showcase_Transition
 
-Each transition loops between two images, so the image below is a single moment. Wipes move a shaped edge (fire, a page curl, halftone dots) across the surface; distortions ripple, warp, or blur one image into the other.
+Each transition loops between two images, so the image below is a single moment. Wipes move a shaped edge (fire, a page curl, halftone dots) across the surface; distortions ripple, warp, or blur one image into the other. `M_FlipTransition`, next to `M_Flip_Transition`, is a rebuild of it with the same parameters and defaults and its bugs fixed: the tiles now turn over instead of being cut out by a band.
 
 ![Showcase_Transition](docs/images/Showcase_Transition.jpg)
 
@@ -106,7 +106,7 @@ Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
 
 ## Material Catalog
 
-The project has 177 materials, 91 material functions, and 85 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
+The project has 178 materials, 91 material functions, and 85 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
 
 | Category | Examples | Materials |
 | --- | --- | ---: |
@@ -115,7 +115,7 @@ The project has 177 materials, 91 material functions, and 85 material instances.
 | Seasons | maple and ginkgo leaves, snowflakes, falling snow | 5 |
 | Animation & Effects | ECG, waves, tunnels, spirals, hex patterns, sci-fi rings, warp, lens flare, caustics | 40 |
 | Dissolve & Fade | rectangle, triangle and hex dissolves, dot and hex fades | 22 |
-| Transitions | burn, flip, page curl, ripple, warp, zoom blur | 12 |
+| Transitions | burn, flip, page curl, ripple, warp, zoom blur | 13 |
 | Post Process | VHS, old TV, glitch, night vision, halftone, sumi-e, speed lines, damage vignette, screen transitions | 43 |
 | UI | loading icons, gauges, radar chart, 7- and 14-segment displays, potion, outline | 21 |
 | Work in Progress | unfinished materials | 1 |

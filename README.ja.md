@@ -46,7 +46,7 @@
 | `Showcase_Shape` | 図形、SDF の図形、アイコン、季節のモチーフ 27 件 |
 | `Showcase_Seasons` | 春・秋・冬に分けた季節のモチーフ 7 件 |
 | `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
-| `Showcase_Transition` | 画面の切り替え 11 件(ワイプと歪み) |
+| `Showcase_Transition` | 画面の切り替え 12 件(ワイプと歪み) |
 | `Showcase_Dissolve` | 四角・三角・ドット・六角形のマス目で消えるディゾルブとフェード 20 件 |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
@@ -70,7 +70,7 @@
 
 ### Showcase_Transition
 
-どれも 2 枚の画像の間を行き来してループするので、下の画像はある一瞬のものです。ワイプは炎、めくれ、網点などの形をした境目が動いて切り替わり、歪みは画像を波打たせたり、ゆがめたり、ぼかしたりしながら切り替わります。
+どれも 2 枚の画像の間を行き来してループするので、下の画像はある一瞬のものです。ワイプは炎、めくれ、網点などの形をした境目が動いて切り替わり、歪みは画像を波打たせたり、ゆがめたり、ぼかしたりしながら切り替わります。`M_Flip_Transition` の隣の `M_FlipTransition` は、パラメータと既定値をそのままに不具合を直して作り直したもので、タイルが帯で切り抜かれずにめくれます。
 
 ![Showcase_Transition](docs/images/Showcase_Transition.jpg)
 
@@ -106,7 +106,7 @@ Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic
 
 ## マテリアル一覧
 
-マテリアル 177 件、マテリアル関数 91 件、マテリアルインスタンス 85 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
+マテリアル 178 件、マテリアル関数 91 件、マテリアルインスタンス 85 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
 
 | カテゴリ | 例 | 件数 |
 | --- | --- | ---: |
@@ -115,7 +115,7 @@ Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic
 | Seasons | 紅葉、イチョウ、雪の結晶、降雪 | 5 |
 | Animation & Effects | 心電図、波、トンネル、渦巻き、六角形の模様、SF風のリング、ワープ、レンズフレア、コースティクス | 40 |
 | Dissolve & Fade | 矩形・三角形・六角形のディゾルブ、ドット・六角形のフェード | 22 |
-| Transitions | 燃焼、フリップ、ページめくり、波紋、ワープ、ズームブラー | 12 |
+| Transitions | 燃焼、フリップ、ページめくり、波紋、ワープ、ズームブラー | 13 |
 | Post Process | VHS、古いテレビ、グリッチ、暗視、ハーフトーン、墨絵、集中線、被ダメージのビネット、画面トランジション | 43 |
 | UI | ローディングアイコン、ゲージ、レーダーチャート、7セグ・14セグ表示、ポーション、アウトライン | 21 |
 | Work in Progress | 制作途中のもの | 1 |

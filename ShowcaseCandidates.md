@@ -2,12 +2,12 @@
 
 Content 以下の Material / PostProcess マテリアルの全一覧。ジャンル別 Showcase レベルに載せるものを選ぶための作業用チェックリスト。
 
-- 対象: 177 件(M_ 136 / PP 41)
+- 対象: 178 件(M_ 137 / PP 41)
 - `採用` 列はジャンル別 Showcase レベルへの採用状況。空欄はどのレベルにも未掲載
   - Shape: 27 件(`Tools/BuildShowcaseShape.py`)
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
-  - Transition: 11 件(`Tools/BuildShowcaseTransition.py`)
+  - Transition: 12 件(`Tools/BuildShowcaseTransition.py`)
   - Dissolve: 20 件(`Tools/BuildShowcaseDissolve.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
@@ -200,6 +200,12 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
 | Transition | M_Transition_Distortion | M | Surface |  | 2024-02-25 | 2024-02-25 | 0 |  |
+
+## Materials/Transitions/FlipTransition
+
+| 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
+|:--:|---|:--:|:--:|:--:|---|---|:--:|---|
+| Transition | M_FlipTransition | M | Surface |  |  |  | 0 |  |
 
 ## Materials/PostProcess
 
