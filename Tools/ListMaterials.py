@@ -9,14 +9,15 @@
   ジャンル別 Showcase レベルへの採用状況、MI の親、使用 MF を付ける。
 - docs/MaterialCatalog.md は README から参照する英語の公開用一覧。
   ShowcaseCandidates.md は作業用チェックリストで、こちらは利用者向けに分類と使い道だけを載せる。
-- .uasset のバイナリから /Game/ パス文字列を拾うだけの簡易実装で、
-  UE エディタを起動せずに動く。
+- .uasset / .umap のインポート表を直接読む簡易実装で、UE エディタを起動せずに動く。
+  読めない形式のアセットはバイナリから /Game/ パス文字列を拾う。
 - ドメイン列は Tools/material_domains.csv (CheckMaterialDomains.py の出力を控えたもの)
   から取る。マテリアルを増やしたらエディタで CheckMaterialDomains.py を流して更新する。
 """
 import csv
 import os
 import re
+import struct
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -32,6 +33,7 @@ FOLDER_ORDER = [
     "Materials/Bonus", "Materials/Bonus/Other", "Materials/Bonus/Dissolve",
     "Materials/Bonus/Fade/Dot", "Materials/Bonus/Fade/Hex",
     "Materials/Transition", "Materials/Transition/Transition_Export",
+    "Materials/Transitions/FlipTransition",
     "Materials/PostProcess", "Materials/PostProcess/MaterialFunctions/VHS",
     "Materials", "Materials/SF", "Materials/Warp", "Materials/Flare",
     "Materials/Caustics", "Materials/SumiE", "Materials/Ui",
@@ -44,10 +46,15 @@ FOLDER_ORDER = [
 SHOWCASE_LEVELS = [
     ("Shape", CONTENT / "Levels/Showcase_Shape.umap", None),
     ("Seasons", CONTENT / "Levels/Showcase_Seasons.umap", None),
+    ("Animation", CONTENT / "Levels/Showcase_Animation.umap", None),
+    ("Transition", CONTENT / "Levels/Showcase_Transition.umap", None),
+    ("Dissolve", CONTENT / "Levels/Showcase_Dissolve.umap", None),
     # 小道具として図形のマテリアルも置いているので、PostProcess ドメインのものだけ数える
     ("PostProcess", CONTENT / "Levels/Showcase_PostProcess.umap", "PostProcess"),
     # UI はウィジェットに並べて画面に重ねる。マテリアルを参照するのはレベルではなくウィジェット
     ("UI_LoadingIcon", CONTENT / "Widgets/WBP_Showcase_UI_LoadingIcon.uasset", "UI"),
+    ("UI_Status", CONTENT / "Widgets/WBP_Showcase_UI_Status.uasset", "UI"),
+    ("UI_Graphic", CONTENT / "Widgets/WBP_Showcase_UI_Graphic.uasset", "UI"),
 ]
 LEGACY_LEVEL = CONTENT / "Levels/Showcase.umap"
 
@@ -67,7 +74,7 @@ CATALOG_CATEGORIES = [
     ("Dissolve & Fade", "rectangle, triangle and hex dissolves, dot and hex fades",
      ["Materials/Bonus"]),
     ("Transitions", "burn, flip, page curl, ripple, warp, zoom blur",
-     ["Materials/Transition"]),
+     ["Materials/Transition", "Materials/Transitions"]),
     ("Post Process", "VHS, old TV, glitch, night vision, halftone, sumi-e, speed lines, "
      "damage vignette, screen transitions",
      ["Materials/PostProcess"]),
@@ -78,9 +85,94 @@ CATALOG_CATEGORIES = [
 CATALOG_DOMAINS = {"Surface": "Surface", "UI": "UI", "PostProcess": "Post Process"}
 
 
+PACKAGE_TAG = 0x9E2A83C1
+UE5_OPTIONAL_RESOURCES = 1003       # インポートに bImportOptional が付いた版
+UE5_ADD_SOFTOBJECTPATH_LIST = 1008
+UE5_PACKAGE_SAVED_HASH = 1016
+PKG_FILTER_EDITOR_ONLY = 0x80000000
+
+
+def import_packages(data):
+    """パッケージのインポート表から参照先のパッケージパスを読む。読めない形式なら None。
+
+    FName は末尾の _数字 を番号として名前と別に持つ (M_Foo_2 は "M_Foo" と番号 3)。
+    そのため文字列を拾うだけでは M_Foo_2 への参照が M_Foo に見える。インポート表なら番号ごと読める。
+    PackageFileSummary の並びは UE 5.8 の PackageFileSummary.cpp / ObjectResource.cpp に合わせてある。
+    """
+    pos = 0
+
+    def i32():
+        nonlocal pos
+        v = struct.unpack_from("<i", data, pos)[0]
+        pos += 4
+        return v
+
+    def fstring():
+        nonlocal pos
+        n = i32()
+        if n >= 0:
+            s = data[pos:pos + n].decode("latin-1")
+            pos += n
+        else:
+            s = data[pos:pos - 2 * n].decode("utf-16-le")
+            pos += -2 * n
+        return s.rstrip(chr(0))
+
+    try:
+        if struct.unpack_from("<I", data, 0)[0] != PACKAGE_TAG:
+            return None
+        pos = 4
+        legacy = i32()
+        if legacy > -8:
+            return None                 # UE5 のバージョン番号が無い古い形式
+        i32()                           # LegacyUE3Version
+        i32()                           # FileVersionUE4
+        ue5 = i32()
+        i32()                           # FileVersionLicenseeUE4
+        if ue5 < UE5_OPTIONAL_RESOURCES:
+            return None
+        if ue5 >= UE5_PACKAGE_SAVED_HASH:
+            pos += 20 + 4               # SavedHash, TotalHeaderSize
+        n_custom = i32()                # カスタムバージョン (Guid + int32)
+        pos += n_custom * 20            # pos += i32() * 20 だと i32() で進む前の pos に足される
+        if ue5 < UE5_PACKAGE_SAVED_HASH:
+            i32()                       # TotalHeaderSize
+        fstring()                       # PackageName
+        flags = struct.unpack_from("<I", data, pos)[0]
+        pos += 4
+        name_count, name_offset = i32(), i32()
+        if ue5 >= UE5_ADD_SOFTOBJECTPATH_LIST:
+            pos += 8
+        if not flags & PKG_FILTER_EDITOR_ONLY:
+            fstring()                   # LocalizationId
+        pos += 8 + 8                    # GatherableTextData, Export の数と位置
+        import_count, import_offset = i32(), i32()
+
+        pos = name_offset
+        names = []
+        for _ in range(name_count):
+            names.append(fstring())
+            pos += 4                    # 名前のハッシュ 2 つ
+        out = set()
+        for k in range(import_count):
+            # ClassPackage, ClassName, OuterIndex, ObjectName, PackageName, bImportOptional = 40 バイト
+            _, _, cls, _, outer, obj, num = struct.unpack_from("<7i", data, import_offset + k * 40)
+            if outer == 0 and names[cls] == "Package":
+                out.add(names[obj] + ("_%d" % (num - 1) if num else ""))
+        return out
+    except (struct.error, IndexError, UnicodeDecodeError):
+        return None
+
+
 def refs(path):
-    """.uasset / .umap のバイナリから /Game/... の参照を拾う。"""
+    """.uasset / .umap が参照する /Game/... のパッケージを返す。
+
+    インポート表を読めればそれを使い、読めない形式ならバイナリから /Game/ の文字列を拾う。
+    """
     data = Path(path).read_bytes()
+    pkgs = import_packages(data)
+    if pkgs is not None:
+        return {p for p in pkgs if p.startswith("/Game/")}
     return {m.group().decode() for m in re.finditer(rb"/Game/[A-Za-z0-9_/\-\.]{4,}", data)}
 
 

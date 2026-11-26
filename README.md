@@ -45,8 +45,13 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | --- | --- |
 | `Showcase_Shape` | 27 shapes, SDF shapes, icons, and seasonal motifs |
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
+| `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
+| `Showcase_Transition` | 12 screen transitions: wipes and distortions |
+| `Showcase_Dissolve` | 20 dissolves and fades on rectangle, triangle, dot, and hex grids |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
+| `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
+| `Showcase_UI_Graphic` | A UI lemon slice illustration and a warp background |
 | `Showcase` | The original level, with about half of all the materials |
 
 ### Showcase_Shape
@@ -56,6 +61,24 @@ Open these levels from `Content/Levels` to see the materials side by side.
 ### Showcase_Seasons
 
 ![Showcase_Seasons](docs/images/Showcase_Seasons.jpg)
+
+### Showcase_Animation
+
+Every material here loops over time, so the image below is a single moment.
+
+![Showcase_Animation](docs/images/Showcase_Animation.jpg)
+
+### Showcase_Transition
+
+Each transition loops between two images, so the image below is a single moment. Wipes move a shaped edge (fire, a page curl, halftone dots) across the surface; distortions ripple, warp, or blur one image into the other. `M_FlipTransition`, next to `M_Flip_Transition`, is a rebuild of it with the same parameters and defaults and its bugs fixed: the tiles now turn over instead of being cut out by a band.
+
+![Showcase_Transition](docs/images/Showcase_Transition.jpg)
+
+### Showcase_Dissolve
+
+Every material here loops over time, so the image below is a single moment. Versions such as `M_Rect_Dissolve` to `M_Rect_Dissolve_V6` are shown side by side when they look different.
+
+![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
 
 ### Showcase_PostProcess
 
@@ -69,9 +92,21 @@ The icons are placed in a widget (`Content/Widgets/WBP_Showcase_UI_LoadingIcon`)
 
 ![Showcase_UI_LoadingIcon](docs/images/Showcase_UI_LoadingIcon.png)
 
+### Showcase_UI_Status
+
+The radar chart is made of two layers: `M_Rader_Chart_BG` draws the scale and `M_Rader_Chart_Core` draws the values. `M_Rader_Chart` combines them, and `MI_Rader_Chart` sets different values. As with the loading icons, press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Status`).
+
+![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
+
+### Showcase_UI_Graphic
+
+Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
+
+![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
+
 ## Material Catalog
 
-The project has 177 materials, 91 material functions, and 85 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
+The project has 178 materials, 91 material functions, and 85 material instances. The [Material Catalog](docs/MaterialCatalog.md) lists all of them, with the domain of each material and the showcase level that displays it.
 
 | Category | Examples | Materials |
 | --- | --- | ---: |
@@ -80,7 +115,7 @@ The project has 177 materials, 91 material functions, and 85 material instances.
 | Seasons | maple and ginkgo leaves, snowflakes, falling snow | 5 |
 | Animation & Effects | ECG, waves, tunnels, spirals, hex patterns, sci-fi rings, warp, lens flare, caustics | 40 |
 | Dissolve & Fade | rectangle, triangle and hex dissolves, dot and hex fades | 22 |
-| Transitions | burn, flip, page curl, ripple, warp, zoom blur | 12 |
+| Transitions | burn, flip, page curl, ripple, warp, zoom blur | 13 |
 | Post Process | VHS, old TV, glitch, night vision, halftone, sumi-e, speed lines, damage vignette, screen transitions | 43 |
 | UI | loading icons, gauges, radar chart, 7- and 14-segment displays, potion, outline | 21 |
 | Work in Progress | unfinished materials | 1 |

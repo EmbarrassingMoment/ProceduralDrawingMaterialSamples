@@ -516,7 +516,12 @@ def build_widget(widget_path, groups, layout, log):
     root.set_padding(unreal.Margin(0.0, 0.0, 0.0, 0.0))
     root.set_horizontal_alignment(h_center)
     root.set_vertical_alignment(unreal.VerticalAlignment.V_ALIGN_CENTER)
-    content, _ = _add_widget(wbp, unreal.VerticalBox, "Content", root)
+    # 画面に収まらないとき (エディタのビューポートが小さいときなど) だけ全体を縮める。
+    # 収まるときは拡大しないので、1080p では WidgetLayout の大きさのまま見える
+    fit, _ = _add_widget(wbp, unreal.ScaleBox, "Fit", root)
+    fit.set_stretch(unreal.Stretch.SCALE_TO_FIT)
+    fit.set_stretch_direction(unreal.StretchDirection.DOWN_ONLY)
+    content, _ = _add_widget(wbp, unreal.VerticalBox, "Content", fit)
 
     placed, missing = 0, []
     for g_idx, (gname, gfolder, names) in enumerate(groups):

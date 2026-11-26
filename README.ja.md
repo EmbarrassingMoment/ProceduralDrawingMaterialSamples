@@ -45,8 +45,13 @@
 | --- | --- |
 | `Showcase_Shape` | 図形、SDF の図形、アイコン、季節のモチーフ 27 件 |
 | `Showcase_Seasons` | 春・秋・冬に分けた季節のモチーフ 7 件 |
+| `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
+| `Showcase_Transition` | 画面の切り替え 12 件(ワイプと歪み) |
+| `Showcase_Dissolve` | 四角・三角・ドット・六角形のマス目で消えるディゾルブとフェード 20 件 |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
+| `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 3 件とインスタンス 1 件)とバッテリーゲージ |
+| `Showcase_UI_Graphic` | UI 用のレモンの輪切りのイラストとワープの背景 |
 | `Showcase` | 初代のレベル。全マテリアルの約半数を配置 |
 
 ### Showcase_Shape
@@ -56,6 +61,24 @@
 ### Showcase_Seasons
 
 ![Showcase_Seasons](docs/images/Showcase_Seasons.jpg)
+
+### Showcase_Animation
+
+どれも時間でループするので、下の画像はある一瞬のものです。
+
+![Showcase_Animation](docs/images/Showcase_Animation.jpg)
+
+### Showcase_Transition
+
+どれも 2 枚の画像の間を行き来してループするので、下の画像はある一瞬のものです。ワイプは炎、めくれ、網点などの形をした境目が動いて切り替わり、歪みは画像を波打たせたり、ゆがめたり、ぼかしたりしながら切り替わります。`M_Flip_Transition` の隣の `M_FlipTransition` は、パラメータと既定値をそのままに不具合を直して作り直したもので、タイルが帯で切り抜かれずにめくれます。
+
+![Showcase_Transition](docs/images/Showcase_Transition.jpg)
+
+### Showcase_Dissolve
+
+どれも時間でループするので、下の画像はある一瞬のものです。`M_Rect_Dissolve` から `M_Rect_Dissolve_V6` のような版違いは、見た目が違うものを並べて見比べられるようにしています。
+
+![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
 
 ### Showcase_PostProcess
 
@@ -69,9 +92,21 @@
 
 ![Showcase_UI_LoadingIcon](docs/images/Showcase_UI_LoadingIcon.png)
 
+### Showcase_UI_Status
+
+レーダーチャートは 2 層でできています。`M_Rader_Chart_BG` が目盛り、`M_Rader_Chart_Core` が値の多角形を描き、`M_Rader_Chart` はその 2 つを重ねたもの、`MI_Rader_Chart` は値を変えたインスタンスです。ローディングアイコンと同じく、Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Status`)が表示されます。
+
+![Showcase_UI_Status](docs/images/Showcase_UI_Status.png)
+
+### Showcase_UI_Graphic
+
+Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic`)が表示されます。
+
+![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
+
 ## マテリアル一覧
 
-マテリアル 177 件、マテリアル関数 91 件、マテリアルインスタンス 85 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
+マテリアル 178 件、マテリアル関数 91 件、マテリアルインスタンス 85 件を収録しています。全件の一覧は [Material Catalog](docs/MaterialCatalog.md)(英語)にあり、各マテリアルのドメインと、展示している Showcase レベルも載せています。
 
 | カテゴリ | 例 | 件数 |
 | --- | --- | ---: |
@@ -80,7 +115,7 @@
 | Seasons | 紅葉、イチョウ、雪の結晶、降雪 | 5 |
 | Animation & Effects | 心電図、波、トンネル、渦巻き、六角形の模様、SF風のリング、ワープ、レンズフレア、コースティクス | 40 |
 | Dissolve & Fade | 矩形・三角形・六角形のディゾルブ、ドット・六角形のフェード | 22 |
-| Transitions | 燃焼、フリップ、ページめくり、波紋、ワープ、ズームブラー | 12 |
+| Transitions | 燃焼、フリップ、ページめくり、波紋、ワープ、ズームブラー | 13 |
 | Post Process | VHS、古いテレビ、グリッチ、暗視、ハーフトーン、墨絵、集中線、被ダメージのビネット、画面トランジション | 43 |
 | UI | ローディングアイコン、ゲージ、レーダーチャート、7セグ・14セグ表示、ポーション、アウトライン | 21 |
 | Work in Progress | 制作途中のもの | 1 |
