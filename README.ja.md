@@ -100,7 +100,7 @@
 
 ### Showcase_UI_Graphic
 
-Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic`)が表示されます。
+`M_2DLemon` は動かないレモンの輪切りで、皮、白いわたの輪、薄い膜で仕切られた先の丸い房、中心の芯を描きます。房の外径は `Rflesh`、膜の幅は `MemThciness` で変えられます。`M_Warp_Effect_UI` は `M_Warp_Effect` の UI 版で、時間でループします。Play(PIE)を押すとウィジェット(`Content/Widgets/WBP_Showcase_UI_Graphic`)が表示されます。
 
 ![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
 
