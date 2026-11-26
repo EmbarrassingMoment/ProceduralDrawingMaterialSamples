@@ -100,7 +100,7 @@ The radar chart is made of two layers: `M_Rader_Chart_BG` draws the scale and `M
 
 ### Showcase_UI_Graphic
 
-Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
+`M_2DLemon` draws a still lemon slice: the rind, a white pith ring, segments with rounded tips split by thin membranes, and the core. `Rflesh` sets where the segments end and `MemThciness` sets the membrane width. `M_Warp_Effect_UI` is the UI version of `M_Warp_Effect` and loops over time. Press Play (PIE) to see the widget (`Content/Widgets/WBP_Showcase_UI_Graphic`).
 
 ![Showcase_UI_Graphic](docs/images/Showcase_UI_Graphic.png)
 
