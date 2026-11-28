@@ -88,14 +88,14 @@ How to read the tables:
 | M_Flare | Materials/Flare | Surface |  |  |
 | M_Flare_V2 | Materials/Flare | Surface |  |  |
 | M_Glitch | Materials/Animation | Surface | Animation |  |
-| M_Hex_Animation | Materials/Hex | Surface |  |  |
-| M_Hex_Animation_V3 | Materials/Hex | Surface |  |  |
-| M_Hex_Animation_V4 | Materials/Hex | Surface |  |  |
-| M_Hex_Animatoin_V2 | Materials/Hex | Surface |  |  |
-| M_Hex_Dissolve | Materials/Hex | Surface |  |  |
-| M_Hex_V2 | Materials/Hex | Surface |  | 1 |
-| M_HexTiling | Materials/Hex | Surface |  | 1 |
-| M_HexTiling_V3 | Materials/Hex | Surface |  | 1 |
+| M_Hex_Animation | Materials/Hex | Surface | Hex |  |
+| M_Hex_Animation_V3 | Materials/Hex | Surface | Hex |  |
+| M_Hex_Animation_V4 | Materials/Hex | Surface | Hex |  |
+| M_Hex_Animatoin_V2 | Materials/Hex | Surface | Hex |  |
+| M_Hex_Dissolve | Materials/Hex | Surface | Hex |  |
+| M_Hex_V2 | Materials/Hex | Surface | Hex | 1 |
+| M_HexTiling | Materials/Hex | Surface | Hex | 1 |
+| M_HexTiling_V3 | Materials/Hex | Surface | Hex | 1 |
 | M_Pulse | Materials/Animation | Surface | Animation |  |
 | M_Pulse_Animation | Materials/Animation | Surface | Animation |  |
 | M_Rainbow_Sample | Materials/Animation | Surface | Animation |  |
@@ -149,7 +149,7 @@ How to read the tables:
 | M_Triangle_Dissolve_V3 | Materials/Bonus/Dissolve | Surface | Dissolve |  |
 | M_Triangle_Motion | Materials/Bonus/Other | Surface | Dissolve |  |
 | M_Triangle_Tilling_Dissolve | Materials/Bonus/Dissolve | Surface | Dissolve | 1 |
-| M_TriangleTiling | Materials/Bonus | Surface |  | 1 |
+| M_TriangleTiling | Materials/Bonus | Surface | Dissolve | 1 |
 
 ## Transitions
 

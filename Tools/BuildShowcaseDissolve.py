@@ -28,12 +28,13 @@ DISSOLVE = BONUS + "/Dissolve"
 HEX_FADE = BONUS + "/Fade/Hex"
 
 # 行ごとの (グループ名, 既定フォルダ, [マテリアル名...])
-# どれも時間でループする。元のマテリアルを既定値のまま並べる。
+# M_TriangleTiling 以外は時間でループする。元のマテリアルを既定値のまま並べる。
 #   _V2 / V3 などの版は、見た目がはっきり違うものはすべて並べる (Rect_Dissolve の V1〜V6 は
 #   流れる向き・形・色がそれぞれ違う)。見た目が同じものだけ新しい版に寄せる。
+#   M_TriangleTiling は動かない三角の格子。線が 1 px ほどと細く、この距離では点に潰れて見える
+#   (近づけば格子になる)
 #   入れないもの:
 #     M_Rect_Dissolve_V4 ... V6 と同じ動きで、違いは Tiling (8 と 10) だけ
-#     M_TriangleTiling   ... 時間で動かず、既定値では白い面に点が散るだけで三角の模様に見えない
 #     インスタンス (MI_Hex_Tiling_Dissolve, MI_Transition_Square, MI_Triangle_Tilling_Dissolve,
 #       MI_Dot_Fade, MI_Hex_Fade, Mi_Hex_Fade2, MI_Hex_Random_Fade, MI_Hex_Random_Noise,
 #       MI_TriangleTiling) ... どれも値を上書きしておらず、親と同じ見た目
@@ -46,10 +47,11 @@ ROWS = [
         ]),
     ],
     [
-        # 三角のマス目。M_Triangle_Motion (Bonus/Other) は消えずに模様が流れ続ける
+        # 三角のマス目。M_Triangle_Motion (Bonus/Other) は消えずに模様が流れ続け、
+        # M_TriangleTiling (Bonus) はディゾルブの元になる格子だけを描く
         ("Triangle", DISSOLVE, [
             "M_Triangle_Dissolve_V2", "M_Triangle_Dissolve_V3", "M_Triangle_Tilling_Dissolve",
-            BONUS + "/Other/M_Triangle_Motion",
+            BONUS + "/Other/M_Triangle_Motion", BONUS + "/M_TriangleTiling",
         ]),
         ("Dot", BONUS + "/Fade/Dot", ["M_Dot_Fade"]),
     ],

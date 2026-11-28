@@ -47,7 +47,8 @@
 | `Showcase_Seasons` | 春・秋・冬に分けた季節のモチーフ 7 件 |
 | `Showcase_Animation` | 時間で動くマテリアル 20 件(波形、放射状の効果、模様、トランジション、グリッチ) |
 | `Showcase_Transition` | 画面の切り替え 12 件(ワイプと歪み) |
-| `Showcase_Dissolve` | 四角・三角・ドット・六角形のマス目で消えるディゾルブとフェード 20 件 |
+| `Showcase_Dissolve` | 四角・三角・ドット・六角形のマス目で消えるディゾルブとフェード 21 件 |
+| `Showcase_Hex` | 六角形のマス目のマテリアル 8 件(格子、ディゾルブ、アニメーション) |
 | `Showcase_PostProcess` | ポストプロセス効果 27 件(1 件ずつブースに分けて展示) |
 | `Showcase_UI_LoadingIcon` | UI 用のローディングアイコン 5 件 |
 | `Showcase_UI_Status` | UI 用のレーダーチャート(マテリアル 3 件とインスタンス 1 件)とバッテリーゲージ |
@@ -76,9 +77,15 @@
 
 ### Showcase_Dissolve
 
-どれも時間でループするので、下の画像はある一瞬のものです。`M_Rect_Dissolve` から `M_Rect_Dissolve_V6` のような版違いは、見た目が違うものを並べて見比べられるようにしています。
+`M_TriangleTiling` 以外は時間でループするので、下の画像はある一瞬のものです。`M_Rect_Dissolve` から `M_Rect_Dissolve_V6` のような版違いは、見た目が違うものを並べて見比べられるようにしています。`M_TriangleTiling` は動かない三角の格子で、線が 1 px ほどと細いため、初期位置のカメラからは点に見えます。近づくと格子が見えます。
 
 ![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
+
+### Showcase_Hex
+
+`M_HexTiling` 以外は時間でループするので、下の画像はある一瞬のものです。`M_HexTiling` は `M_TriangleTiling` と同じく動かない格子で、線が細いため初期位置のカメラからは点に見えます。
+
+![Showcase_Hex](docs/images/Showcase_Hex.jpg)
 
 ### Showcase_PostProcess
 
