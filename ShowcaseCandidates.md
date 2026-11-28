@@ -8,7 +8,8 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
   - Seasons: 7 件(`Tools/BuildShowcaseSeasons.py`)
   - Animation: 20 件(`Tools/BuildShowcaseAnimation.py`)
   - Transition: 12 件(`Tools/BuildShowcaseTransition.py`)
-  - Dissolve: 20 件(`Tools/BuildShowcaseDissolve.py`)
+  - Dissolve: 21 件(`Tools/BuildShowcaseDissolve.py`)
+  - Hex: 8 件(`Tools/BuildShowcaseHex.py`)
   - PostProcess: 27 件(`Tools/BuildShowcasePostProcess.py`)
   - UI_LoadingIcon: 5 件(`Tools/BuildShowcaseUI_LoadingIcon.py`)
   - UI_Status: 4 件(`Tools/BuildShowcaseUI_Status.py`)
@@ -123,20 +124,20 @@ Content 以下の Material / PostProcess マテリアルの全一覧。ジャン
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_HexTiling | M | Surface | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_HexTiling |
-|  | M_HexTiling_V3 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 1 | MI: MI_HexTiling_V3 |
-|  | M_Hex_Animation | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
-|  | M_Hex_Animation_V3 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
-|  | M_Hex_Animation_V4 | M | Surface | ✓ | 2023-08-13 | 2026-05-18 | 0 |  |
-|  | M_Hex_Animatoin_V2 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
-|  | M_Hex_Dissolve | M | Surface | ✓ | 2025-07-11 | 2026-05-18 | 0 |  |
-|  | M_Hex_V2 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 1 | MI: MI_Hex_V2 |
+| Hex | M_HexTiling | M | Surface | ✓ | 2025-07-11 | 2025-07-11 | 1 | MI: MI_HexTiling |
+| Hex | M_HexTiling_V3 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 1 | MI: MI_HexTiling_V3 |
+| Hex | M_Hex_Animation | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
+| Hex | M_Hex_Animation_V3 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
+| Hex | M_Hex_Animation_V4 | M | Surface | ✓ | 2023-08-13 | 2026-05-18 | 0 |  |
+| Hex | M_Hex_Animatoin_V2 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 0 |  |
+| Hex | M_Hex_Dissolve | M | Surface | ✓ | 2025-07-11 | 2026-05-18 | 0 |  |
+| Hex | M_Hex_V2 | M | Surface | ✓ | 2023-08-13 | 2023-08-13 | 1 | MI: MI_Hex_V2 |
 
 ## Materials/Bonus
 
 | 採用 | 名前 | 種別 | ドメイン | 旧 | 追加 | 更新 | MI | 備考 |
 |:--:|---|:--:|:--:|:--:|---|---|:--:|---|
-|  | M_TriangleTiling | M | Surface |  | 2022-04-29 | 2026-01-05 | 1 | MI: MI_TriangleTiling |
+| Dissolve | M_TriangleTiling | M | Surface |  | 2022-04-29 | 2026-01-05 | 1 | MI: MI_TriangleTiling |
 
 ## Materials/Bonus/Other
 

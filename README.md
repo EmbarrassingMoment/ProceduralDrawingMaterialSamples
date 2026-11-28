@@ -47,7 +47,8 @@ Open these levels from `Content/Levels` to see the materials side by side.
 | `Showcase_Seasons` | 7 seasonal motifs grouped into spring, autumn, and winter |
 | `Showcase_Animation` | 20 animated materials: waves, radial effects, patterns, transitions, and a glitch |
 | `Showcase_Transition` | 12 screen transitions: wipes and distortions |
-| `Showcase_Dissolve` | 20 dissolves and fades on rectangle, triangle, dot, and hex grids |
+| `Showcase_Dissolve` | 21 dissolves and fades on rectangle, triangle, dot, and hex grids |
+| `Showcase_Hex` | 8 hexagon grid materials: tilings, a dissolve, and animations |
 | `Showcase_PostProcess` | 27 post process effects, one per booth |
 | `Showcase_UI_LoadingIcon` | 5 UI loading icons |
 | `Showcase_UI_Status` | UI radar charts (3 materials and 1 instance) and a battery gauge |
@@ -76,9 +77,15 @@ Each transition loops between two images, so the image below is a single moment.
 
 ### Showcase_Dissolve
 
-Every material here loops over time, so the image below is a single moment. Versions such as `M_Rect_Dissolve` to `M_Rect_Dissolve_V6` are shown side by side when they look different.
+All but `M_TriangleTiling` loop over time, so the image below is a single moment. Versions such as `M_Rect_Dissolve` to `M_Rect_Dissolve_V6` are shown side by side when they look different. `M_TriangleTiling` draws a still triangle grid whose 1 px lines read as dots from the default camera; move closer to see the grid.
 
 ![Showcase_Dissolve](docs/images/Showcase_Dissolve.jpg)
+
+### Showcase_Hex
+
+All but `M_HexTiling` loop over time, so the image below is a single moment. Like `M_TriangleTiling`, `M_HexTiling` is a still grid with thin lines that read as dots from the default camera.
+
+![Showcase_Hex](docs/images/Showcase_Hex.jpg)
 
 ### Showcase_PostProcess
 
